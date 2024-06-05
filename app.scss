@@ -1,0 +1,139 @@
+body {
+    max-width: 1400px;
+    margin: 0 auto;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+}
+
+@mixin resetMargin {
+    margin: 0;
+}
+
+// Container
+
+.manjon-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+
+    @media (min-width: 900px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__content {}
+
+    &__information {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @media (min-width: 900px) {
+            font-size: 24px;
+        }
+    }
+
+    &-subtitle {
+        @include resetMargin();
+        font-weight: 700;
+        font-size: 1rem;
+        line-height: 30px;
+    }
+
+    &-title {
+        @include resetMargin();
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 120%;
+
+        @media (min-width: 900px) {
+            font-size: 40px;
+        }
+    }
+
+    &-text {
+        @include resetMargin(); 
+        font-weight: 400;
+        font-size: 1rem;
+        line-height: 150%;
+        color: #121212bf;
+    }
+
+    &__wrapper {
+        display: flex;
+        flex-flow: row wrap;
+        gap: 24px;
+        margin: 24px 0;
+    }
+
+    &__block {
+       
+        @media (min-width: 768px) {
+            max-width: 296px;
+        }
+
+        &-title {
+            @include resetMargin();
+            font-weight: bold;
+            font-size: 18px;
+            line-height: 140%;
+
+            @media (min-width: 900px) {
+                font-size: 20px;
+            }
+        }
+
+        &-text {
+            @include resetMargin();
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 150%;
+            color: #121212bf;
+        }
+    }
+
+    &__picture {
+        width: 100%;
+        height: 100%;
+
+        &-img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+.btn {
+    --btn-border-color: transparent;
+    --btn-text-color: rgb(86, 86, 86);
+    --btn-bg: transparent;
+
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px 24px;
+    border: 1px solid var(--btn-border-color);
+    background-color: var(--btn-bg);
+    font-weight: 400;
+    color: var(--btn-text-color);
+
+    &--primary {
+        --btn-border-color: black;
+        --btn-text-color: white;
+        --btn-bg: black;
+        
+        
+        &-outline {
+            --btn-border-color: black;
+            --btn-bg: white;
+            --btn-text-color: black;
+        }
+    }
+
+    &--ghost {
+        --btn-border-color: transparent;
+        --btn-text-color: black;
+        --btn-bg: transparent; 
+    }
+}

@@ -1,0 +1,119 @@
+body {
+  max-width: 1400px;
+  margin: 0 auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+}
+
+.manjon-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+@media (min-width: 900px) {
+  .manjon-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 10px;
+  }
+}
+.manjon-container__information {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+@media (min-width: 900px) {
+  .manjon-container__information {
+    font-size: 24px;
+  }
+}
+.manjon-container-subtitle {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 30px;
+}
+.manjon-container-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+}
+@media (min-width: 900px) {
+  .manjon-container-title {
+    font-size: 40px;
+  }
+}
+.manjon-container-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  color: rgba(18, 18, 18, 0.7490196078);
+}
+.manjon-container__wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 24px;
+  margin: 24px 0;
+}
+@media (min-width: 768px) {
+  .manjon-container__block {
+    max-width: 296px;
+  }
+}
+.manjon-container__block-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 140%;
+}
+@media (min-width: 900px) {
+  .manjon-container__block-title {
+    font-size: 20px;
+  }
+}
+.manjon-container__block-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  color: rgba(18, 18, 18, 0.7490196078);
+}
+.manjon-container__picture {
+  width: 100%;
+  height: 100%;
+}
+.manjon-container__picture-img {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  --btn-border-color: transparent;
+  --btn-text-color: rgb(86, 86, 86);
+  --btn-bg: transparent;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1px solid var(--btn-border-color);
+  background-color: var(--btn-bg);
+  font-weight: 400;
+  color: var(--btn-text-color);
+}
+.btn--primary {
+  --btn-border-color: black;
+  --btn-text-color: white;
+  --btn-bg: black;
+}
+.btn--primary-outline {
+  --btn-border-color: black;
+  --btn-bg: white;
+  --btn-text-color: black;
+}
+.btn--ghost {
+  --btn-border-color: transparent;
+  --btn-text-color: black;
+  --btn-bg: transparent;
+}/*# sourceMappingURL=app.css.map */
