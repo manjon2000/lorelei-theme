@@ -1,8 +1,19 @@
+:root {
+  --night-out: #000000;
+  --off-white: #FAFCFB;
+  --lil-gray: #E6EAED;
+  --nude: #EAE9E8;
+  --gray: #CACABE;
+  --blue: #818F96;
+  --sky: #CCE6ED;
+}
+
 body {
   max-width: 1400px;
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
+  background-color: #FAFCFB;
 }
 
 .manjon-container {
@@ -39,6 +50,7 @@ body {
   font-weight: bold;
   font-size: 32px;
   line-height: 120%;
+  color: #818F96;
 }
 @media (min-width: 900px) {
   .manjon-container-title {
@@ -50,7 +62,7 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 150%;
-  color: rgba(18, 18, 18, 0.7490196078);
+  color: #CACABE;
 }
 .manjon-container__wrapper {
   display: flex;
@@ -68,6 +80,7 @@ body {
   font-weight: bold;
   font-size: 18px;
   line-height: 140%;
+  color: #818F96;
 }
 @media (min-width: 900px) {
   .manjon-container__block-title {
@@ -79,7 +92,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
-  color: rgba(18, 18, 18, 0.7490196078);
+  color: #CACABE;
 }
 .manjon-container__picture {
   width: 100%;
@@ -101,19 +114,33 @@ body {
   background-color: var(--btn-bg);
   font-weight: 400;
   color: var(--btn-text-color);
+  transition: ease-in-out 0.25s;
 }
 .btn--primary {
-  --btn-border-color: black;
+  --btn-border-color: #818F96;
   --btn-text-color: white;
-  --btn-bg: black;
+  --btn-bg: #818F96;
+}
+.btn--primary:hover {
+  --btn-border-color: #CACABE;
+  --btn-bg: #CACABE;
+  --btn-text-color: #FAFCFB;
 }
 .btn--primary-outline {
   --btn-border-color: black;
   --btn-bg: white;
   --btn-text-color: black;
 }
+.btn--primary-outline:hover {
+  --btn-border-color: #818F96;
+  --btn-text-color: white;
+  --btn-bg: #818F96;
+}
 .btn--ghost {
   --btn-border-color: transparent;
   --btn-text-color: black;
   --btn-bg: transparent;
+}
+.btn--ghost:hover {
+  --btn-text-color: #CACABE;
 }/*# sourceMappingURL=app.css.map */

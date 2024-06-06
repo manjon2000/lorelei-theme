@@ -1,8 +1,21 @@
+:root {
+    // PRIMARY COLORS
+    --night-out: #000000;
+    --off-white: #FAFCFB;
+    --lil-gray:  #E6EAED;
+    --nude:      #EAE9E8;
+    // SECONDARY COLORS
+    --gray: #CACABE;
+    --blue: #818F96;
+    --sky:  #CCE6ED;
+}
+
 body {
     max-width: 1400px;
     margin: 0 auto;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
+    background-color: #FAFCFB;
 }
 
 @mixin resetMargin {
@@ -47,6 +60,7 @@ body {
         font-weight: bold;
         font-size: 32px;
         line-height: 120%;
+        color: #818F96;
 
         @media (min-width: 900px) {
             font-size: 40px;
@@ -58,7 +72,7 @@ body {
         font-weight: 400;
         font-size: 1rem;
         line-height: 150%;
-        color: #121212bf;
+        color: #CACABE;
     }
 
     &__wrapper {
@@ -79,6 +93,7 @@ body {
             font-weight: bold;
             font-size: 18px;
             line-height: 140%;
+            color: #818F96;
 
             @media (min-width: 900px) {
                 font-size: 20px;
@@ -90,7 +105,7 @@ body {
             font-weight: 400;
             font-size: 14px;
             line-height: 150%;
-            color: #121212bf;
+            color: #CACABE;
         }
     }
 
@@ -117,23 +132,40 @@ body {
     background-color: var(--btn-bg);
     font-weight: 400;
     color: var(--btn-text-color);
+    transition: ease-in-out .25s;
 
     &--primary {
-        --btn-border-color: black;
+        --btn-border-color: #818F96;
         --btn-text-color: white;
-        --btn-bg: black;
+        --btn-bg: #818F96;
+
+        &:hover {
+            --btn-border-color: #CACABE;
+            --btn-bg: #CACABE;
+            --btn-text-color: #FAFCFB;
+        }
         
         
         &-outline {
             --btn-border-color: black;
             --btn-bg: white;
             --btn-text-color: black;
+
+            &:hover {
+                --btn-border-color: #818F96;
+                --btn-text-color: white;
+                --btn-bg: #818F96;
+            }
         }
     }
 
     &--ghost {
         --btn-border-color: transparent;
         --btn-text-color: black;
-        --btn-bg: transparent; 
+        --btn-bg: transparent;
+
+        &:hover {
+            --btn-text-color: #CACABE;
+        }
     }
 }
