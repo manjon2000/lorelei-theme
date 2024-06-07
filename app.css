@@ -132,9 +132,9 @@ body {
   --btn-text-color: black;
 }
 .btn--primary-outline:hover {
-  --btn-border-color: #818F96;
-  --btn-text-color: white;
-  --btn-bg: #818F96;
+  --btn-border-color: #CACABE;
+  --btn-bg: transparent;
+  --btn-text-color: #CACABE;
 }
 .btn--ghost {
   --btn-border-color: transparent;
@@ -143,4 +143,103 @@ body {
 }
 .btn--ghost:hover {
   --btn-text-color: #CACABE;
+}
+
+.manjon-container-tabs {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  overflow-x: hidden;
+}
+@media (min-width: 900px) {
+  .manjon-container-tabs {
+    display: grid;
+    grid-template-areas: "tabs images";
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+}
+@media (min-width: 900px) {
+  .manjon-container-tabs--reverse {
+    grid-template-areas: "images tabs";
+  }
+}
+.manjon-container-tabs__blocks {
+  display: flex;
+  flex-direction: column;
+  grid-area: tabs;
+  gap: 24px;
+}
+.manjon-container-tabs__blocks-item {
+  --tab-item-height: 0%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  position: relative;
+  padding: 0 2rem;
+}
+.manjon-container-tabs__blocks-item:hover {
+  cursor: pointer;
+}
+.manjon-container-tabs__blocks-item::before {
+  content: "";
+  width: 4px;
+  height: var(--tab-item-height);
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: #CCE6ED;
+  transition: ease-in-out 0.25s;
+}
+.manjon-container-tabs__blocks-item:hover::before {
+  height: 100%;
+}
+.manjon-container-tabs__blocks-item--show {
+  --tab-item-height: 100%;
+}
+.manjon-container-tabs__blocks-item-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 140%;
+  color: #818F96;
+}
+@media (min-width: 900px) {
+  .manjon-container-tabs__blocks-item-title {
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+.manjon-container-tabs__blocks-item-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #CACABE;
+}
+.manjon-container-tabs__pictures {
+  grid-area: images;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  padding-top: 1.25rem;
+}
+@media (min-width: 900px) {
+  .manjon-container-tabs__pictures {
+    padding-top: 0;
+  }
+}
+.manjon-container-tabs__pictures-img {
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  transition: opacity ease-in-out 0.5s;
+}
+.manjon-container-tabs__pictures-img--show {
+  opacity: 1;
+  height: 100%;
 }/*# sourceMappingURL=app.css.map */

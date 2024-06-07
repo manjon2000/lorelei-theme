@@ -1,4 +1,14 @@
 {%- style -%}
+  :root {
+    --night-out: #000000;
+    --off-white: #FAFCFB;
+    --lil-gray: #E6EAED;
+    --nude: #EAE9E8;
+    --gray: #CACABE;
+    --blue: #818F96;
+    --sky: #CCE6ED;
+  }
+
   .manjon-container {
     max-width: 1400px;
     margin: 0 auto;
@@ -33,6 +43,7 @@
     font-weight: bold;
     font-size: 32px;
     line-height: 120%;
+    color: #818F96;
   }
   @media (min-width: 900px) {
     .manjon-container-title {
@@ -44,7 +55,7 @@
     font-weight: 400;
     font-size: 1rem;
     line-height: 150%;
-    color: rgba(18, 18, 18, 0.7490196078);
+    color: #CACABE;
   }
   .manjon-container__wrapper {
     display: flex;
@@ -62,6 +73,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 140%;
+    color: #818F96;
   }
   @media (min-width: 900px) {
     .manjon-container__block-title {
@@ -73,7 +85,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
-    color: rgba(18, 18, 18, 0.7490196078);
+    color: #CACABE;
   }
   .manjon-container__picture {
     width: 100%;
@@ -95,28 +107,42 @@
     background-color: var(--btn-bg);
     font-weight: 400;
     color: var(--btn-text-color);
+    transition: ease-in-out 0.25s;
   }
   .btn--primary {
-    --btn-border-color: black;
+    --btn-border-color: #818F96;
     --btn-text-color: white;
-    --btn-bg: black;
+    --btn-bg: #818F96;
+  }
+  .btn--primary:hover {
+    --btn-border-color: #CACABE;
+    --btn-bg: #CACABE;
+    --btn-text-color: #FAFCFB;
   }
   .btn--primary-outline {
     --btn-border-color: black;
     --btn-bg: white;
     --btn-text-color: black;
   }
+  .btn--primary-outline:hover {
+    --btn-border-color: #CACABE;
+    --btn-bg: transparent;
+    --btn-text-color: #CACABE;
+  }
   .btn--ghost {
     --btn-border-color: transparent;
     --btn-text-color: black;
     --btn-bg: transparent;
   }
+  .btn--ghost:hover {
+    --btn-text-color: #CACABE;
+  }
 {%- endstyle -%}
 <section class="manjon-container">
   <article class="manjon-container__content">
-    <!-- OPCIONAL -->
-    <h4 class="manjon-container-subtitle">{{ section.settings.subtitle }}</h4>
-    <!-- //OPCIONAL -->
+    {% if section.settings.subtitle != blank %}
+      <h4 class="manjon-container-subtitle">{{ section.settings.subtitle }}</h4>
+    {% endif %}
     <div class="manjon-container__information">
       <h3 class="manjon-container-title">{{ section.settings.title }}</h3>
       <p class="manjon-container-text">
@@ -158,11 +184,11 @@
     {% endunless %}
   </article>
   <picture class="manjon-container__picture">
-    <img
-      class="manjon-container__picture-img"
-      src="https://fiverr-res.cloudinary.com/image/upload/t_collaboration_hd,q_auto,f_auto/v1/secured-attachments/message/order_attachments/4ae87dcd28231da21fb524cac5069f07-1717529184180/Micellar%20Water6Y2A0079.jpg?__cld_token__=exp=1717623446~hmac=00f3014bfe2b72a35f9bf273be3734293152a281996a6d419d3882a35a92d33c"
-      alt="Picture"
-    >
+    {{
+      section.settings.image_container
+      | img_url: 'master'
+      | img_tag: block.settings.image.alt, 'manjon-container__picture-img'
+    }}
   </picture>
 </section>
 {% schema %}
@@ -186,6 +212,11 @@
       "id": "text",
       "label": "Text",
       "default": "At Lorelei, we believe in using only the finest ingredients that truly benefit your skin, without any harmful effects. Our luxurious creams are carefully crafted to provide you with the ultimate skincare experience."
+    },
+    {
+      "type": "image_picker",
+      "id": "image_container",
+      "label": "Insert image container"
     },
     {
       "type": "checkbox",

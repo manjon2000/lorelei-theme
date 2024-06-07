@@ -1,0 +1,246 @@
+<script type="text/javascript" defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.manjon-container-tabs').forEach((container) => {
+      let wrapperItemsTabs = container.querySelector('.manjon-container-tabs__blocks');
+      let wrapperItemsImages = container.querySelector('.manjon-container-tabs__pictures');
+
+      let itemsTabs = wrapperItemsTabs.querySelectorAll('.manjon-container-tabs__blocks-item');
+      let itemsImages = wrapperItemsImages.querySelectorAll('.manjon-container-tabs__pictures-img');
+
+      const showFirstElement = (items, className) => {
+        items[0].classList.add(className);
+      };
+
+      showFirstElement(itemsTabs, 'manjon-container-tabs__blocks-item--show');
+      showFirstElement(itemsImages, 'manjon-container-tabs__pictures-img--show');
+
+      itemsTabs.forEach((tab, index) => {
+        tab.addEventListener('mouseenter', () => {
+          removeClassShowTab(itemsTabs);
+          tab.classList.add('manjon-container-tabs__blocks-item--show');
+          removeClassShowImages(itemsImages);
+          addClassShowImage(itemsImages, index);
+        });
+      });
+
+      const removeClassShowTab = (items) => {
+        items.forEach((tab) => tab.classList.remove('manjon-container-tabs__blocks-item--show'));
+      };
+
+      const removeClassShowImages = (images) => {
+        images.forEach((image) => image.classList.remove('manjon-container-tabs__pictures-img--show'));
+      };
+
+      const addClassShowImage = (images, index) => {
+        images[index].classList.add('manjon-container-tabs__pictures-img--show');
+      };
+
+      container.addEventListener('mouseleave', () => {
+        removeClassShowTab(itemsTabs);
+        showFirstElement(itemsTabs, 'manjon-container-tabs__blocks-item--show');
+        removeClassShowImages(itemsImages);
+        showFirstElement(itemsImages, 'manjon-container-tabs__pictures-img--show');
+      });
+    });
+  });
+</script>
+
+{%- style -%}
+  :root {
+    --night-out: #000000;
+    --off-white: #fafcfb;
+    --lil-gray: #e6eaed;
+    --nude: #eae9e8;
+    --gray: #cacabe;
+    --blue: #818f96;
+    --sky: #cce6ed;
+  }
+
+  .manjon-container-tabs {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    overflow-x: hidden;
+  }
+  @media (min-width: 900px) {
+    .manjon-container-tabs {
+      display: grid;
+      grid-template-areas: 'tabs images';
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+  @media (min-width: 900px) {
+    .manjon-container-tabs--reverse {
+      grid-template-areas: 'images tabs';
+    }
+  }
+  .manjon-container-tabs__blocks {
+    display: flex;
+    flex-direction: column;
+    grid-area: tabs;
+    gap: 24px;
+  }
+  .manjon-container-tabs__blocks-item {
+    --tab-item-height: 0%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: relative;
+    padding: 0 2rem;
+  }
+  .manjon-container-tabs__blocks-item:hover {
+    cursor: pointer;
+  }
+  .manjon-container-tabs__blocks-item::before {
+    content: '';
+    width: 4px;
+    height: var(--tab-item-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #cce6ed;
+    transition: ease-in-out 0.25s;
+  }
+  .manjon-container-tabs__blocks-item:hover::before {
+    height: 100%;
+  }
+  .manjon-container-tabs__blocks-item--show {
+    --tab-item-height: 100%;
+  }
+  .manjon-container-tabs__blocks-item-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 140%;
+    color: #818f96;
+  }
+  @media (min-width: 900px) {
+    .manjon-container-tabs__blocks-item-title {
+      font-size: 32px;
+      line-height: 130%;
+    }
+  }
+  .manjon-container-tabs__blocks-item-text {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #cacabe;
+  }
+  .manjon-container-tabs__pictures {
+    grid-area: images;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    padding-top: 1.25rem;
+  }
+  @media (min-width: 900px) {
+    .manjon-container-tabs__pictures {
+      padding-top: 0;
+    }
+  }
+  .manjon-container-tabs__pictures-img {
+    width: 100%;
+    height: 0;
+    opacity: 0;
+    transition: opacity ease-in-out 0.5s;
+  }
+  .manjon-container-tabs__pictures-img--show {
+    opacity: 1;
+    height: 100%;
+  }
+{%- endstyle -%}
+
+<section class="manjon-container-tabs {{ section.settings.block_options }}">
+  <article class="manjon-container-tabs__blocks">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'tab' %}
+          <div class="manjon-container-tabs__blocks-item">
+            <h3 class="manjon-container-tabs__blocks-item-title">
+              {{ block.settings.block_title }}
+            </h3>
+            <p class="manjon-container-tabs__blocks-item-text">
+              {{ block.settings.block_text }}
+            </p>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </article>
+  <article class="manjon-container-tabs__pictures">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'image' %}
+          {{
+            block.settings.image_container
+            | img_url: 'master'
+            | img_tag: block.settings.image_container.alt, 'manjon-container-tabs__pictures-img'
+          }}
+      {% endcase %}
+    {% endfor %}
+  </article>
+</section>
+
+{% schema %}
+{
+  "name": "tabs",
+  "settings": [
+    {
+      "type": "select",
+      "id": "block_options",
+      "label": "Alignment Content",
+      "options": [
+        {
+          "label": "Default",
+          "value": ""
+        },
+        {
+          "label": "Column Reverse",
+          "value": "manjon-container-tabs--reverse"
+        }
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "name": "tabs",
+      "type": "tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Block Title",
+          "default": "Luxurious Ingredients"
+        },
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Block Text",
+          "default": "Our products are made with the finest ingredients, carefully selected for their quality and effectiveness. We believe in using only the best to provide you with a luxurious skincare experience."
+        }
+      ]
+    },
+    {
+      "name": "images",
+      "type": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_container",
+          "label": "Insert image container"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tabs"
+    }
+  ]
+}
+{% endschema %}
