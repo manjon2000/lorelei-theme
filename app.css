@@ -1,23 +1,23 @@
 :root {
   --night-out: #000000;
-  --off-white: #FAFCFB;
-  --lil-gray: #E6EAED;
-  --nude: #EAE9E8;
-  --gray: #CACABE;
-  --blue: #818F96;
-  --sky: #CCE6ED;
+  --off-white: #fafcfb;
+  --lil-gray: #e6eaed;
+  --nude: #eae9e8;
+  --gray: #cacabe;
+  --blue: #818f96;
+  --sky: #cce6ed;
 }
 
 body {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  background-color: #FAFCFB;
+  background-color: #fafcfb;
 }
 
 .manjon-container {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -50,7 +50,7 @@ body {
   font-weight: bold;
   font-size: 32px;
   line-height: 120%;
-  color: #818F96;
+  color: #818f96;
 }
 @media (min-width: 900px) {
   .manjon-container-title {
@@ -62,7 +62,7 @@ body {
   font-weight: 400;
   font-size: 1rem;
   line-height: 150%;
-  color: #CACABE;
+  color: #cacabe;
 }
 .manjon-container__wrapper {
   display: flex;
@@ -80,7 +80,7 @@ body {
   font-weight: bold;
   font-size: 18px;
   line-height: 140%;
-  color: #818F96;
+  color: #818f96;
 }
 @media (min-width: 900px) {
   .manjon-container__block-title {
@@ -92,7 +92,7 @@ body {
   font-weight: 400;
   font-size: 14px;
   line-height: 150%;
-  color: #CACABE;
+  color: #cacabe;
 }
 .manjon-container__picture {
   width: 100%;
@@ -117,14 +117,14 @@ body {
   transition: ease-in-out 0.25s;
 }
 .btn--primary {
-  --btn-border-color: #818F96;
+  --btn-border-color: #818f96;
   --btn-text-color: white;
-  --btn-bg: #818F96;
+  --btn-bg: #818f96;
 }
 .btn--primary:hover {
-  --btn-border-color: #CACABE;
-  --btn-bg: #CACABE;
-  --btn-text-color: #FAFCFB;
+  --btn-border-color: #cacabe;
+  --btn-bg: #cacabe;
+  --btn-text-color: #fafcfb;
 }
 .btn--primary-outline {
   --btn-border-color: black;
@@ -132,9 +132,9 @@ body {
   --btn-text-color: black;
 }
 .btn--primary-outline:hover {
-  --btn-border-color: #CACABE;
+  --btn-border-color: #cacabe;
   --btn-bg: transparent;
-  --btn-text-color: #CACABE;
+  --btn-text-color: #cacabe;
 }
 .btn--ghost {
   --btn-border-color: transparent;
@@ -142,11 +142,11 @@ body {
   --btn-bg: transparent;
 }
 .btn--ghost:hover {
-  --btn-text-color: #CACABE;
+  --btn-text-color: #cacabe;
 }
 
 .manjon-container-tabs {
-  max-width: 1400px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 1rem;
   position: relative;
@@ -192,7 +192,7 @@ body {
   left: 0;
   bottom: 0;
   margin: auto;
-  background-color: #CCE6ED;
+  background-color: #cce6ed;
   transition: ease-in-out 0.25s;
 }
 .manjon-container-tabs__blocks-item:hover::before {
@@ -206,7 +206,7 @@ body {
   font-weight: bold;
   font-size: 24px;
   line-height: 140%;
-  color: #818F96;
+  color: #818f96;
 }
 @media (min-width: 900px) {
   .manjon-container-tabs__blocks-item-title {
@@ -219,7 +219,7 @@ body {
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
-  color: #CACABE;
+  color: #cacabe;
 }
 .manjon-container-tabs__pictures {
   grid-area: images;
@@ -242,4 +242,92 @@ body {
 .manjon-container-tabs__pictures-img--show {
   opacity: 1;
   height: 100%;
+}
+
+.manjon-grid-collections {
+  max-width: 1440px;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow: hidden;
+}
+@media (min-width: 600px) {
+  .manjon-grid-collections {
+    max-height: 60dvh;
+    height: 600px;
+    display: grid;
+    grid-template-areas: "first secondary" "first terciary";
+  }
+}
+.manjon-grid-collections__card {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  grid-area: secondary;
+}
+.manjon-grid-collections__card:hover > .manjon-grid-collections__card-img {
+  animation: animateAmbient 30s linear infinite;
+}
+@media (min-width: 1024px) {
+  .manjon-grid-collections__card:hover > .manjon-grid-collections__card__content {
+    opacity: 1;
+  }
+}
+.manjon-grid-collections__card:first-child {
+  grid-area: first;
+}
+.manjon-grid-collections__card:last-child {
+  grid-area: terciary;
+}
+.manjon-grid-collections__card-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  aspect-ratio: 4/3;
+  transition: ease-in-out 0.25s;
+}
+.manjon-grid-collections__card__content {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  padding: 0.4rem 0;
+  z-index: 2;
+  background: rgb(202, 202, 190);
+  background: linear-gradient(103deg, rgba(202, 202, 190, 0.5) 12%, rgba(129, 143, 150, 0.5) 100%);
+  transition: ease-in-out 0.5s;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+@media (min-width: 1024px) {
+  .manjon-grid-collections__card__content {
+    opacity: 0;
+  }
+}
+.manjon-grid-collections__card-title {
+  margin: 0;
+  line-height: 200%;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: #fafcfb;
+}
+
+@keyframes animateAmbient {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
 }/*# sourceMappingURL=app.css.map */

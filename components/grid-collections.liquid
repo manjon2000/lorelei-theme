@@ -1,0 +1,130 @@
+{%- style -%}
+.manjon-grid-collections {
+  max-width: 1440px;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+  overflow: hidden;
+}
+@media (min-width: 600px) {
+  .manjon-grid-collections {
+    max-height: 60dvh;
+    height: 600px;
+    display: grid;
+    grid-template-areas: "first secondary" "first terciary";
+  }
+}
+.manjon-grid-collections__card {
+  width: 100%;
+  min-height: 100%;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  grid-area: secondary;
+}
+.manjon-grid-collections__card:hover > .manjon-grid-collections__card-img {
+  animation: animateAmbient 30s linear infinite;
+}
+@media (min-width: 1024px) {
+  .manjon-grid-collections__card:hover > .manjon-grid-collections__card__content {
+    opacity: 1;
+  }
+}
+.manjon-grid-collections__card:first-child {
+  grid-area: first;
+}
+.manjon-grid-collections__card:last-child {
+  grid-area: terciary;
+}
+.manjon-grid-collections__card-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  aspect-ratio: 4/3;
+  transition: ease-in-out 0.25s;
+}
+.manjon-grid-collections__card__content {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  padding: 0.4rem 0;
+  z-index: 2;
+  background: rgb(202, 202, 190);
+  background: linear-gradient(103deg, rgba(202, 202, 190, 0.5) 12%, rgba(129, 143, 150, 0.5) 100%);
+  transition: ease-in-out 0.5s;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+}
+@media (min-width: 1024px) {
+  .manjon-grid-collections__card__content {
+    opacity: 0;
+  }
+}
+.manjon-grid-collections__card-title {
+  margin: 0;
+  line-height: 200%;
+  font-size: 1.5rem;
+  margin-left: 1rem;
+  color: #fafcfb;
+}
+
+@keyframes animateAmbient {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2);
+  }
+}
+{%- endstyle -%}
+
+<div class="manjon-grid-collections scroll-trigger animate--slide-in">
+  {% for block in section.blocks limit: 3 %}
+    <a href="{{ block.settings.product.url }}" class="manjon-grid-collections__card">
+      {{
+        block.settings.product.images[0]
+        | img_url: 'master'
+        | img_tag: block.settings.product.images[0].alt, 'manjon-grid-collections__card-img'
+      }}
+      <div class="manjon-grid-collections__card__content">
+        <h3 class="manjon-grid-collections__card-title">
+          {{ block.settings.product.title }}
+        </h3>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Grid Collections",
+  "blocks": [
+    {
+      "name": "Products",
+      "type": "productos",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Add Product in the grid"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Grid Collections"
+    }
+  ]
+}
+{% endschema %}
