@@ -1,3 +1,4 @@
+/* Styles General */
 :root {
   --night-out: #000000;
   --off-white: #fafcfb;
@@ -8,14 +9,60 @@
   --sky: #cce6ed;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  max-width: 1280px;
-  margin: 0 auto;
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
   background-color: #fafcfb;
 }
 
+.btn {
+  --btn-border-color: transparent;
+  --btn-text-color: rgb(86, 86, 86);
+  --btn-bg: transparent;
+  display: inline-block;
+  text-decoration: none;
+  padding: 12px 24px;
+  border: 1px solid var(--btn-border-color);
+  background-color: var(--btn-bg);
+  font-weight: 400;
+  color: var(--btn-text-color);
+  transition: ease-in-out 0.25s;
+}
+.btn--primary {
+  --btn-border-color: #818f96;
+  --btn-text-color: white;
+  --btn-bg: #818f96;
+}
+.btn--primary:hover {
+  --btn-border-color: #cacabe;
+  --btn-bg: #cacabe;
+  --btn-text-color: #fafcfb;
+}
+.btn--primary-outline {
+  --btn-border-color: black;
+  --btn-bg: white;
+  --btn-text-color: black;
+}
+.btn--primary-outline:hover {
+  --btn-border-color: #cacabe;
+  --btn-bg: transparent;
+  --btn-text-color: #cacabe;
+}
+.btn--ghost {
+  --btn-border-color: transparent;
+  --btn-text-color: black;
+  --btn-bg: transparent;
+}
+.btn--ghost:hover {
+  --btn-text-color: #cacabe;
+}
+
+/* //Styles General */
+/* Container */
 .manjon-container {
   max-width: 1280px;
   margin: 0 auto;
@@ -103,48 +150,7 @@ body {
   height: 100%;
 }
 
-.btn {
-  --btn-border-color: transparent;
-  --btn-text-color: rgb(86, 86, 86);
-  --btn-bg: transparent;
-  display: inline-block;
-  text-decoration: none;
-  padding: 12px 24px;
-  border: 1px solid var(--btn-border-color);
-  background-color: var(--btn-bg);
-  font-weight: 400;
-  color: var(--btn-text-color);
-  transition: ease-in-out 0.25s;
-}
-.btn--primary {
-  --btn-border-color: #818f96;
-  --btn-text-color: white;
-  --btn-bg: #818f96;
-}
-.btn--primary:hover {
-  --btn-border-color: #cacabe;
-  --btn-bg: #cacabe;
-  --btn-text-color: #fafcfb;
-}
-.btn--primary-outline {
-  --btn-border-color: black;
-  --btn-bg: white;
-  --btn-text-color: black;
-}
-.btn--primary-outline:hover {
-  --btn-border-color: #cacabe;
-  --btn-bg: transparent;
-  --btn-text-color: #cacabe;
-}
-.btn--ghost {
-  --btn-border-color: transparent;
-  --btn-text-color: black;
-  --btn-bg: transparent;
-}
-.btn--ghost:hover {
-  --btn-text-color: #cacabe;
-}
-
+/* tabs */
 .manjon-container-tabs {
   max-width: 1280px;
   margin: 0 auto;
@@ -244,6 +250,7 @@ body {
   height: 100%;
 }
 
+/* Grid Collections */
 .manjon-grid-collections {
   max-width: 1440px;
   height: -moz-max-content;
@@ -329,5 +336,140 @@ body {
   }
   100% {
     transform: scale(2);
+  }
+}
+/* Faqs */
+.manjon-faqs {
+  max-width: 600px;
+  width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  display: grid;
+  gap: 48px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+.manjon-faqs-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 120%;
+  color: #000000;
+}
+.manjon-faqs-text {
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 150%;
+  color: #000000;
+  margin-bottom: 0;
+}
+.manjon-faqs__wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.manjon-faqs__item__box {
+  width: 100%;
+  border: 1px solid var(--night-out);
+  padding: 1rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.manjon-faqs__item-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--night-out);
+}
+.manjon-faqs__item__content {
+  padding: 0;
+  border: 1px solid var(--night-out);
+  border-top: none;
+  animation-name: collapseAnimation;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+.manjon-faqs__item__content > * {
+  margin: 0;
+  opacity: 0;
+  transition: opacity ease-in-out 1s;
+}
+.manjon-faqs__item--expand .manjon-faqs__item__content {
+  animation-name: expandAnimation;
+  animation-duration: 0.25s;
+  animation-fill-mode: forwards;
+}
+.manjon-faqs__item--expand .manjon-faqs__item__content > * {
+  opacity: 1;
+}
+.manjon-faqs__cta-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.manjon-faqs__cta-contact-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--night-out);
+}
+@media (min-width: 900px) {
+  .manjon-faqs__cta-contact-title {
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+.manjon-faqs__cta-contact-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--night-out);
+}
+@media (min-width: 900px) {
+  .manjon-faqs__cta-contact-text {
+    font-size: 18px;
+    line-height: 150%;
+  }
+}
+.manjon-faqs__cta-contact-btn {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@keyframes collapseAnimation {
+  0% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+    height: auto;
+    padding: 1rem;
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+    height: 0;
+  }
+}
+@keyframes expandAnimation {
+  0% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+    height: auto;
+    padding: 1rem;
   }
 }/*# sourceMappingURL=app.css.map */
