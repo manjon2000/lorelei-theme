@@ -741,3 +741,109 @@ body {
     transform: translateY(0px);
   }
 }
+
+/* CTA Container */
+
+.manjon-cta-container {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+
+  @media (min-width: 768px) {
+    gap: 80px;
+  }
+
+  &__information {
+    max-width: 768px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      gap: 24px;
+    }
+
+
+    &-title,
+    &-subtitle,
+    &-text {
+      @include resetMargin();
+      text-align: center;
+    }
+
+    &-subtitle {
+      font-weight: 600;
+      font-size: 1rem;
+      line-height: 150%;
+      color: #000;
+    }
+
+    &-title {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 120%;
+      color: var(--blue);
+
+      @media (min-width: 768px) {
+        font-size: 48px;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 150%;
+      color: var(--gray);
+
+      @media (min-width: 768px) {
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 24px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3,1fr);
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &-title,
+    &-text {
+      @include resetMargin();
+      text-align: center;
+    }
+
+    &-title {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 140%;
+      color: var(--blue);
+      
+      @media (min-width: 768px) {
+        font-size: 32px;
+        line-height: 130%;
+      }
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 150%;
+      color: var(--gray);
+    }
+
+  }
+}

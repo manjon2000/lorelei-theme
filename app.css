@@ -657,4 +657,99 @@ body {
     opacity: 1;
     transform: translateY(0px);
   }
+}
+/* CTA Container */
+.manjon-cta-container {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .manjon-cta-container {
+    gap: 80px;
+  }
+}
+.manjon-cta-container__information {
+  max-width: 768px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .manjon-cta-container__information {
+    gap: 24px;
+  }
+}
+.manjon-cta-container__information-title, .manjon-cta-container__information-subtitle, .manjon-cta-container__information-text {
+  margin: 0;
+  text-align: center;
+}
+.manjon-cta-container__information-subtitle {
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 150%;
+  color: #000;
+}
+.manjon-cta-container__information-title {
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 120%;
+  color: var(--blue);
+}
+@media (min-width: 768px) {
+  .manjon-cta-container__information-title {
+    font-size: 48px;
+  }
+}
+.manjon-cta-container__information-text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--gray);
+}
+@media (min-width: 768px) {
+  .manjon-cta-container__information-text {
+    font-size: 18px;
+  }
+}
+.manjon-cta-container__wrapper {
+  display: grid;
+  gap: 24px;
+}
+@media (min-width: 768px) {
+  .manjon-cta-container__wrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.manjon-cta-container__block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.manjon-cta-container__block-title, .manjon-cta-container__block-text {
+  margin: 0;
+  text-align: center;
+}
+.manjon-cta-container__block-title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 140%;
+  color: var(--blue);
+}
+@media (min-width: 768px) {
+  .manjon-cta-container__block-title {
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+.manjon-cta-container__block-text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 150%;
+  color: var(--gray);
 }/*# sourceMappingURL=app.css.map */
