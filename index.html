@@ -5,19 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" href="./config/fonts.css" />
+    <link rel="stylesheet" href="./config/fonts.css" />
     <link rel="stylesheet" href="app.css">
 </head>
 
 <body>
 
-    <h1>HOME</h1>
-    <hr>
+    <div class="manjon-slider" aria-setIterval="3">
+        <div class="manjon-slider__wrapper" aria-index="1">
+            <div class="manjon-slider__item manjon-slider__item--show"
+                style="background-image: url('./assets/exclusive-aqua.jpg');">
+                <div class="manjon-slider__item__content">
+                    <h2 class="manjon-slider__item-title">Micellar Water</h2>
+                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing moisture. The
+                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused with
+                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a feather-light
+                        texture ideal for oilier skin.</p>
+                    <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
+                </div>
+            </div>
+            <div class="manjon-slider__item" style="background-image: url('./assets/deep-cleansing.jpg');">
+                <div class="manjon-slider__item__content">
+                    <h2 class="manjon-slider__item-title">Facial Serum</h2>
+                    <p class="manjon-slider__item-text">Creamy cooling mask helps detoxify and pretoxify skin to attract
+                        impurities, purge skin of debris, and perfect pores, leaving skin feeling refreshed and looking
+                        refined.</p>
+                    <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
+                </div>
+            </div>
+            <div class="manjon-slider__item" style="background-image: url('./assets/exclusive-nature-bonus.jpg');">
+                <div class="manjon-slider__item__content">
+                    <h2 class="manjon-slider__item-title">Deep Cleansing</h2>
+                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing moisture. The
+                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused with
+                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a feather-light
+                        texture ideal for oilier skin.</p>
+                    <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+        <div class="manjon-slider__controls">
+            <button class="manjon-slider__controls-prev">
+                <svg viewBox="0 0 14 10" fill="red" aria-hidden="true" focusable="false" class="icon icon-arrow"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                        fill="#818f96">
+                    </path>
+                </svg>
+            </button>
+            <button class="manjon-slider__controls-next">
+                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
+                        fill="#818f96">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <br><br><br>
 
     <div class="manjon-faqs">
@@ -37,7 +85,15 @@
                     </svg>
                 </button>
                 <div class="manjon-faqs__item__content">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque, voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores pariatur inventore, ut fugiat?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque,
+                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus
+                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut
+                        quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti
+                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam
+                        voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis
+                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus
+                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores
+                        pariatur inventore, ut fugiat?</p>
                 </div>
             </div>
             <div class="manjon-faqs__item">
@@ -50,7 +106,15 @@
                     </svg>
                 </button>
                 <div class="manjon-faqs__item__content">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque, voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores pariatur inventore, ut fugiat?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque,
+                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus
+                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut
+                        quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti
+                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam
+                        voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis
+                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus
+                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores
+                        pariatur inventore, ut fugiat?</p>
                 </div>
             </div>
         </div>

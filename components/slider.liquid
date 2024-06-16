@@ -1,0 +1,553 @@
+{% style %}
+  .manjon-slider {
+    --slider-controls-opacity: 0;
+    --slider-hight-sm: 100dvh;
+    --slider-hight-md: 100dvh;
+    --slider-hight-lg: 100dvh;
+    width: 100%;
+    height: var(--slider-hight-sm);
+    overflow: hidden;
+  }
+  @media (min-width: 768px) {
+    .manjon-slider {
+      height: var(--slider-hight-md);
+    }
+  }
+  @media (min-width: 1024px) {
+    .manjon-slider {
+      height: var(--slider-hight-lg);
+    }
+  }
+  .manjon-slider__wrapper {
+    width: 300%;
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    transition: ease-in-out 0.25s;
+  }
+  .manjon-slider__item {
+    --slider-item-positionX-sm: center;
+    --slider-item-positionX-md: center;
+    --slider-item-positionX-lg: center;
+    --slider-item-positionY-sm: center;
+    --slider-item-positionY-md: center;
+    --slider-item-positionY-lg: center;
+    width: 100%;
+    height: 100%;
+    background-position-x: var(--slider-item-positionX-sm);
+    background-position-y: var(--slider-item-positionY-sm);
+    background-size: cover;
+    background-color: hwb(0 0% 100%/0.5);
+    background-blend-mode: overlay;
+  }
+  @media (min-width: 768px) {
+    .manjon-slider__item {
+      background-position-x: var(--slider-item-positionX-md);
+      background-position-y: var(--slider-item-positionY-md);
+    }
+  }
+  @media (min-width: 1024px) {
+    .manjon-slider__item {
+      background-position-x: var(--slider-item-positionX-lg);
+      background-position-y: var(--slider-item-positionY-lg);
+    }
+  }
+  .manjon-slider__item__content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .manjon-slider__item-title,
+  .manjon-slider__item-text {
+    margin: 0;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .manjon-slider__item-title {
+    color: #fff;
+    font-size: 4.7em;
+    line-height: 72px;
+  }
+  @media (min-width: 900px) {
+    .manjon-slider__item-title {
+      max-width: 30ch;
+    }
+  }
+  .manjon-slider__item-text {
+    color: #dbdbdb;
+    font-size: 1rem;
+    line-height: 24px;
+  }
+  @media (min-width: 768px) {
+    .manjon-slider__item-text {
+      max-width: 65ch;
+    }
+  }
+  .manjon-slider__item-btn {
+    width: -moz-fit-content;
+    width: fit-content;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .manjon-slider__item--show > .manjon-slider__item__content {
+    animation: fade-in 0.25s ease-in-out forwards;
+    animation-delay: 0s;
+  }
+  .manjon-slider__item--show .manjon-slider__item-title {
+    animation-name: showContent;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+  }
+  .manjon-slider__item--show .manjon-slider__item-text {
+    animation-name: showContent;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+  }
+  .manjon-slider__item--show .manjon-slider__item-btn {
+    animation-name: showContent;
+    animation-duration: 1.5s;
+    animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+  }
+  .manjon-slider__controls {
+    width: 100%;
+    height: -moz-max-content;
+    height: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 0rem 1rem;
+    margin: auto;
+    opacity: var(--slider-controls-opacity, 0);
+    transition: opacity ease-in-out 0.25s;
+  }
+  .manjon-slider__controls-prev,
+  .manjon-slider__controls-next {
+    border: none;
+    background-color: #fafcfb;
+    padding: 1rem;
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  .manjon-slider__controls-prev svg,
+  .manjon-slider__controls-next svg {
+    width: 20px;
+    height: 20px;
+  }
+  .manjon-slider__controls-prev:hover,
+  .manjon-slider__controls-next:hover {
+    cursor: pointer;
+  }
+  .manjon-slider__controls-prev svg {
+    transform: rotate(-180deg);
+  }
+  .manjon-slider__controls:hover {
+    --slider-controls-opacity: 1;
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes showContent {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+{% endstyle %}
+
+<div
+  class="manjon-slider"
+  style="
+    --slider-hight-sm: {{ section.settings.height_sm}}dvh;
+    --slider-hight-md: {{ section.settings.height_md}}dvh;
+    --slider-hight-lg: {{ section.settings.height_lg}}dvh;
+  "
+  aria-setIterval="{{ section.settings.set_timeIterval }}"
+>
+  <div class="manjon-slider__wrapper" aria-index="1">
+    {% for block in section.blocks %}
+      {% if block.first %}
+        <div
+          class="manjon-slider__item manjon-slider__item--show"
+          style="
+            --slider-item-positionX-sm: {{ block.settings.positionX_sm }};
+            --slider-item-positionX-md: {{ block.settings.positionX_md }};
+            --slider-item-positionX-lg: {{ block.settings.positionX_lg }};
+            --slider-item-positionY-sm: {{ block.settings.positionY_sm }};
+            --slider-item-positionY-md: {{ block.settings.positionY_md }};
+            --slider-item-positionY-lg: {{ block.settings.positionY_lg }};
+            background-image: url({{ block.settings.image_slider.src | img_url: 'master' }});
+          "
+        >
+          <div class="manjon-slider__item__content">
+            <h2 class="manjon-slider__item-title">
+              {{ block.settings.block_title }}
+            </h2>
+            <p class="manjon-slider__item-text">{{ block.settings.block_text }}</p>
+            <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
+          </div>
+        </div>
+      {% endif %}
+      <div
+        class="manjon-slider__item"
+        style="
+          --slider-item-positionX-sm: {{ block.settings.positionX_sm }};
+          --slider-item-positionX-md: {{ block.settings.positionX_md }};
+          --slider-item-positionX-lg: {{ block.settings.positionX_lg }};
+          --slider-item-positionY-sm: {{ block.settings.positionY_sm }};
+          --slider-item-positionY-md: {{ block.settings.positionY_md }};
+          --slider-item-positionY-lg: {{ block.settings.positionY_lg }};
+          background-image: url({{ block.settings.image_slider.src | img_url: 'master' }});
+        "
+      >
+        <div class="manjon-slider__item__content">
+          <h2 class="manjon-slider__item-title">
+            {{ block.settings.block_title }}
+          </h2>
+          <p class="manjon-slider__item-text">{{ block.settings.block_text }}</p>
+          {% if block.settings.hidden_primary_btn == false %}
+            <a class="manjon-slider__item-btn {{ block.settings.type_primary_btn }}">LEARN MORE</a>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="manjon-slider__controls">
+    <button class="manjon-slider__controls-prev">
+      <svg
+        viewBox="0 0 14 10"
+        fill="red"
+        aria-hidden="true"
+        focusable="false"
+        class="icon icon-arrow"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="#818f96">
+        </path>
+      </svg>
+    </button>
+    <button class="manjon-slider__controls-next">
+      <svg
+        viewBox="0 0 14 10"
+        fill="none"
+        aria-hidden="true"
+        focusable="false"
+        class="icon icon-arrow"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z" fill="#818f96">
+        </path>
+      </svg>
+    </button>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "UI Slider",
+  "settings": [
+    {
+      "type": "number",
+      "id": "set_timeIterval",
+      "label": "Set time interval",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "height_sm",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "dvh",
+      "label": "Altura slider mobiles",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "height_md",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "dvh",
+      "label": "Altura slider tablets",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "height_lg",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "dvh",
+      "label": "Altura slider desktops",
+      "default": 100
+    }
+  ],
+  "blocks": [
+    {
+      "name": "config_slider",
+      "type": "items",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Block Title",
+          "default": "Title"
+        },
+        {
+          "type": "text",
+          "id": "block_text",
+          "label": "Block Text",
+          "default": "Description"
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden_primary_btn",
+          "label": "Hidden Primary Button",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "hidden_secondary_btn",
+          "label": "Hidden Primary Button",
+          "default": false
+        },
+        {
+          "type": "select",
+          "id": "type_primary_btn",
+          "label": "Select Style Primary button",
+          "options": [
+            {
+              "label": "Primary",
+              "value": "btn btn--primary"
+            },
+            {
+              "label": "Primary Outline",
+              "value": "btn btn--primary-outline"
+            },
+            {
+              "label": "Ghost",
+              "value": "btn btn--ghost"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "type_secondary_btn",
+          "label": "Select Style Secondary button",
+          "options": [
+            {
+              "label": "Primary",
+              "value": "btn btn--primary"
+            },
+            {
+              "label": "Primary Outline",
+              "value": "btn btn--primary-outline"
+            },
+            {
+              "label": "Ghost",
+              "value": "btn btn--ghost"
+            }
+          ]
+        },
+        {
+          "type": "image_picker",
+          "id": "image_slider",
+          "label": "Insert image container"
+        },
+        {
+          "type": "select",
+          "id": "positionX_sm",
+          "label": "Posicion vertical para la imagen para mobile",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "positionX_md",
+          "label": "Posicion vertical para la imagen para tablets",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "positionX_lg",
+          "label": "Posicion vertical para la imagen para desktops",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "positionY_sm",
+          "label": "Posicion horizontal para la imagen para mobile",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "positionY_md",
+          "label": "Posicion horizontal para la imagen para tablets",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        },
+        {
+          "type": "select",
+          "id": "positionY_lg",
+          "label": "Posicion horizontal para la imagen para desktops",
+          "options": [
+            {
+              "label": "Top",
+              "value": "top"
+            },
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Bottom",
+              "value": "bottom"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "UI Slider"
+    }
+  ]
+}
+{% endschema %}
