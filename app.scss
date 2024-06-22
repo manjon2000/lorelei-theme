@@ -2,11 +2,13 @@
 /* Styles General */
 
 :root {
+  
   // PRIMARY COLORS
   --night-out: #000000;
   --off-white: #fafcfb;
   --lil-gray: #e6eaed;
   --nude: #eae9e8;
+
   // SECONDARY COLORS
   --gray: #cacabe;
   --blue: #818f96;
@@ -846,4 +848,190 @@ body {
     }
 
   }
+}
+
+
+/* HEADER */
+
+.manjon-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+
+  &__navigation {
+    &-list {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      &-item {
+        &-link {
+          text-decoration: none;
+          color: var(--blue);
+        }
+        &__mega-menu {
+          width: 100%;
+          display: flex;
+          gap: 5rem;
+          position: absolute;
+          left: -100%;
+          top: 3rem;
+          background-color: var(--off-white);
+          box-shadow: 15px 6px 9px #3333331d;
+          padding: 2rem;
+          z-index: -1;
+          opacity: 0;
+          height: -1px;
+
+          &::before {
+            content: '';
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top: -3px;
+            z-index: 4;
+            background-color: transparent;
+          }
+
+          &__block {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            &-title-link {
+              font-family: "HV Fitzgerald";
+              font-weight: 900;
+              font-size: 1.25rem;
+            }
+
+            &-link {
+              color: var(--gray);
+              font-size: 1rem;
+              line-height: 1.25rem;
+            }
+          }
+
+          &--show {
+            opacity: 1;
+            z-index: 4;
+            height: auto;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* GRID COLLECTIONS */
+
+.manjon-collections {
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 1rem;
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    &-title {
+      @include resetMargin();
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 120%;
+      color: #818f96;
+  
+      @media (min-width: 900px) {
+        font-size: 40px;
+      }
+    }
+  
+    &-text {
+      @include resetMargin();
+      font-weight: 400;
+      font-size: 1rem;
+      line-height: 150%;
+      color: #cacabe;
+      max-width: 80ch;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: 768px) {
+      display: grid;
+      grid-auto-rows: 400px;
+      grid-template-areas: "primary secondary" "terciary terciary";
+    }
+
+    @media (min-width: 1024px) {
+      grid-auto-rows: 500px;
+      grid-template-areas: "primary secondary terciary";
+    }
+  }
+
+  &__collection {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+
+    &:first-child {
+      grid-area: primary;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      grid-area: secondary;
+    }
+
+    &:last-child {
+      grid-area: terciary;
+    }
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.40);
+    }
+
+    &:hover > &-img,
+    &:hover > &::before {
+      animation: animateAmbient 30s linear infinite;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: cover;
+      z-index: 2;
+      transition: transform ease-in-out .25s
+    }
+
+    &-title {
+      @include resetMargin();
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      font-family: 'HV Fitzgerald';
+      font-size: 2.5rem;
+      color: white;
+      z-index: 4;
+    }
+  }
+
 }

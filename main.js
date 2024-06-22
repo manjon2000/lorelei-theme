@@ -147,7 +147,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     wrapperSlider.setAttribute("aria-index", "1");
     addClassActive();
-    const timingInterval = containerSlider.getAttribute('aria-setIterval') * 1000;
+    const timingInterval =
+      containerSlider.getAttribute("aria-setIterval") * 1000;
 
     let autoMoveInterval = setInterval(moveToNextSlide, timingInterval);
 
@@ -160,5 +161,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".manjon-slider").forEach((slider) => {
     initializeSlider(slider);
+  });
+
+  const navItems = document.querySelectorAll('.manjon-header__navigation-list .manjon-header__navigation-list-item');
+
+  navItems.forEach((item) => {
+    item.addEventListener('mouseenter', (element) => {
+      element.target.childNodes.forEach((child, index) => {
+        if(child.classList) {
+         if(child.classList.contains('manjon-header__navigation-list-item__mega-menu')) {
+          child.classList.add('manjon-header__navigation-list-item__mega-menu--show');
+         }
+        }
+      })
+    });
+
+    item.addEventListener('mouseleave', (element) => {
+      element.target.childNodes.forEach((child) => {
+        if(child.classList) {
+         if(child.classList.contains('manjon-header__navigation-list-item__mega-menu--show')) {
+          child.classList.remove('manjon-header__navigation-list-item__mega-menu--show');
+         }
+        }
+      })
+    });
   });
 });
