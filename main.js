@@ -83,23 +83,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ".manjon-slider__controls"
     );
 
-    let controlPrev = containerControls.querySelector(
-      ".manjon-slider__controls-prev"
-    );
-    let controlNext = containerControls.querySelector(
-      ".manjon-slider__controls-next"
-    );
-
-    controlPrev.addEventListener("click", () => {
-      moveToPreviousSlide();
-      resetAutoMove();
-    });
-
-    controlNext.addEventListener("click", () => {
-      moveToNextSlide();
-      resetAutoMove();
-    });
-
     function moveToPreviousSlide() {
       let attrIndex = parseInt(wrapperSlider.getAttribute("aria-index"));
       if (attrIndex != 1) {

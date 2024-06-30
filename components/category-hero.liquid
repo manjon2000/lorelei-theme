@@ -1,0 +1,318 @@
+{% style %}
+/* Styles General */
+:root {
+  --night-out: #000000;
+  --off-white: #fafcfb;
+  --lil-gray: #e6eaed;
+  --nude: #eae9e8;
+  --gray: #cacabe;
+  --blue: #818f96;
+  --sky: #cce6ed;
+}
+/* PRODUCTS */
+.swiper--custom {
+  --swiper-navigation-color: #FFF;
+  --swiper-navigation-size: 1.5rem;
+  max-width: 1250px;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 0 auto;
+}
+
+.manjon-products {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  display: grid;
+  gap: 4px;
+}
+@media (min-width: 768px) {
+  .manjon-products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.manjon-products__information {
+  margin-bottom: 1rem;
+}
+.manjon-products__information-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 120%;
+  color: #818f96;
+}
+@media (min-width: 900px) {
+  .manjon-products__information-title {
+    font-size: 40px;
+  }
+}
+.manjon-products__information-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: small;
+  line-height: 150%;
+  color: #cacabe;
+}
+.manjon-products__product {
+  --current-img: 1;
+  --preview-img: 0;
+  width: 100%;
+}
+.manjon-products__product:not(.manjon-products__product--one-image) .manjon-products__product-figure:hover {
+  --current-img: 0;
+  --preview-img: 1;
+}
+.manjon-products__product-figure {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/10;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.manjon-products__product-figure-img {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  aspect-ratio: 16/9;
+  transition: opacity ease-in-out 0.25s;
+}
+.manjon-products__product-figure-img--current {
+  opacity: var(--current-img);
+}
+.manjon-products__product-figure-img--preview {
+  opacity: var(--preview-img);
+}
+.manjon-products__product__tag {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  z-index: 3;
+  padding: 4px;
+  background-color: var(--blue);
+  color: white;
+  border-radius: 2px;
+  font-size: xx-small;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.manjon-products__product__content {
+  padding: 1rem 0.5rem;
+}
+.manjon-products__product__content, .manjon-products__product__content__information {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.manjon-products__product-title {
+  margin: 0;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 140%;
+  color: #818f96;
+}
+@media (min-width: 900px) {
+  .manjon-products__product-title {
+    font-size: 32px;
+    line-height: 130%;
+  }
+}
+.manjon-products__product-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 150%;
+  color: #666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.manjon-products__product-text > * {
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.85rem;
+  line-height: 150%;
+  color: #666;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.manjon-products__product-text--not-limit, .manjon-products__product-text--not-limit > * {
+  display: block;
+  -webkit-line-clamp: unset;
+  -webkit-box-orient: unset;
+}
+.manjon-products__product-price {
+  font-size: small;
+  color: #818f96;
+}
+.manjon-products__product-quick-shop {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-size: small;
+  color: #818f96;
+  text-decoration: none;
+}
+.manjon-products__product-quick-shop::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  background-color: #818f96;
+}
+@media (min-width: 1024px) {
+  .manjon-products__product-quick-shop::before {
+    width: 0%;
+    transition: all ease-in-out 0.25s;
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-products__product-quick-shop:hover::before {
+    width: 100%;
+    right: unset;
+    left: 0;
+  }
+}
+
+/* PRODUCTS FEATURED HOME */
+.manjon-product-featured {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (min-width: 768px) {
+  .manjon-product-featured {
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: auto;
+  }
+}
+.manjon-product-featured-title {
+  color: #666;
+  font-size: 7rem;
+  margin: 0;
+  grid-column: 1/6;
+}
+@media (min-width: 768px) {
+  .manjon-product-featured-title {
+    grid-row: 2/2;
+    align-self: flex-end;
+  }
+}
+@media (min-width: 1280px) {
+  .manjon-product-featured-title {
+    font-size: 12rem;
+    line-height: 124px;
+  }
+}
+.manjon-product-featured__picture {
+  width: 100%;
+  height: 100%;
+  grid-column: 1/6;
+  grid-row: 2/2;
+  aspect-ratio: 4/5;
+}
+@media (min-width: 768px) {
+  .manjon-product-featured__picture {
+    grid-column: 5/9;
+    grid-row: 1/3;
+  }
+}
+.manjon-product-featured__picture-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.manjon-product-featured__category {
+  grid-column: 1/6;
+  grid-row: 3/3;
+}
+.manjon-product-featured__category h3 {
+  font-size: 5rem;
+}
+@media (min-width: 768px) {
+  .manjon-product-featured__category {
+    grid-column: 1/5;
+    grid-row: 1/1;
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-product-featured__category {
+    grid-column: 1/4;
+    align-self: flex-start;
+  }
+}
+
+.uppercase {
+  text-transform: uppercase;
+  line-height: 100%;
+}
+{% endstyle %}
+<div class="manjon-product-featured">
+  <h3 class="manjon-product-featured-title">
+      {{ section.settings.title }}
+  </h3>
+  <picture class="manjon-product-featured__picture">
+      <img class="manjon-product-featured__picture-img" src="{{ section.settings.collection.image | image_url: width: 1000 }}" alt="{{ section.settings.collection.title }}" />
+  </picture>
+  <div class="manjon-product-featured__category">
+      <div class="manjon-products__product">
+          <div class="manjon-products__product__content">
+              <div class="manjon-products__product__content__information">
+                  <h3 class="manjon-products__product-title uppercase">
+                    {{ section.settings.collection.title }}
+                  </h3>
+                  <div class="manjon-products__product-text manjon-products__product-text--not-limit">
+                      {{ section.settings.collection.description }}
+                  </div>
+              </div>
+              <a class="manjon-products__product-quick-shop" href="{{ section.settings.collection.url }}">Compra ahora</a>
+          </div>
+      </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "UI faqs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Lorelei"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "collection"
+    }
+  ],
+  "presets": [
+    {
+      "name": "UI Ctegory Hero"
+    }
+  ]
+}
+{% endschema %}

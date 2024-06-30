@@ -1,370 +1,390 @@
 {% stylesheet %}
-      @font-face {
-      font-family: 'HV Fitzgerald';
-      src: url('{{ "HVFitzgerald-Regular.woff2" | file_url }}') format('woff2'),
-          url('{{ "HVFitzgerald-Regular.woff" | file_url }}') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'HV Fitzgerald';
-      src: url('{{ "HVFitzgerald-Bold.woff2" | file_url }}') format('woff2'),
-          url('{{ "HVFitzgerald-Bold.woff" | file_url }}') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'HV Fitzgerald';
-      src: url('{{ "HVFitzgerald-Regular.woff2" | file_url }}') format('woff2'),
-          url('{{ "HVFitzgerald-Regular.woff" | file_url }}') format('woff');
-      font-weight: normal;
-      font-style: normal;
-  }
-
-  @font-face {
-      font-family: 'HV Fitzgerald';
-      src: url('{{ "HVFitzgerald-Bold.woff2" | file_url }}') format('woff2'),
-          url('{{ "HVFitzgerald-Bold.woff" | file_url }}') format('woff');
-      font-weight: bold;
-      font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Bold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Bold.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraLight.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraLight.woff" | file_url }}') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Black.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Black.woff" | file_url }}') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraLightItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraLightItalic.woff" | file_url }}') format('woff');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-BoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-BoldItalic.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraBold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraBold.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-BlackItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-BlackItalic.woff" | file_url }}') format('woff');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraBoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraBoldItalic.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Regular.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Regular.woff" | file_url }}') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Italic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Italic.woff" | file_url }}') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Light.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Light.woff" | file_url }}') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ThinItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ThinItalic.woff" | file_url }}') format('woff');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-SemiBold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-SemiBold.woff" | file_url }}') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-SemiBoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-SemiBoldItalic.woff" | file_url }}') format('woff');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-MediumItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-MediumItalic.woff" | file_url }}') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-LightItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-LightItalic.woff" | file_url }}') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Medium.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Medium.woff" | file_url }}') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Thin.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Thin.woff" | file_url }}') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Bold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Bold.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraLight.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraLight.woff" | file_url }}') format('woff');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Black.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Black.woff" | file_url }}') format('woff');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraLightItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraLightItalic.woff" | file_url }}') format('woff');
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-BoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-BoldItalic.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraBold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraBold.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-BlackItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-BlackItalic.woff" | file_url }}') format('woff');
-    font-weight: 900;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ExtraBoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ExtraBoldItalic.woff" | file_url }}') format('woff');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Regular.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Regular.woff" | file_url }}') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Italic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Italic.woff" | file_url }}') format('woff');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Light.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Light.woff" | file_url }}') format('woff');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-ThinItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-ThinItalic.woff" | file_url }}') format('woff');
-    font-weight: 100;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-SemiBold.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-SemiBold.woff" | file_url }}') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-SemiBoldItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-SemiBoldItalic.woff" | file_url }}') format('woff');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-MediumItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-MediumItalic.woff" | file_url }}') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-LightItalic.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-LightItalic.woff" | file_url }}') format('woff');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Medium.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Medium.woff" | file_url }}') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Public Sans';
-    src: url('{{ "PublicSans-Thin.woff2" | file_url }}') format('woff2'),
-        url('{{ "PublicSans-Thin.woff" | file_url }}') format('woff');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-
-
-    h1,h2,h3,h4,h5,h6 {
-        font-family: 'HV Fitzgerald', sans-serif !important;
-        font-weight: bold !important;
+        @font-face {
+        font-family: 'HV Fitzgerald';
+        src: url('{{ "HVFitzgerald-Regular.woff2" | file_url }}') format('woff2'),
+            url('{{ "HVFitzgerald-Regular.woff" | file_url }}') format('woff');
+        font-weight: normal;
+        font-style: normal;
     }
 
-    p, span, a, button {
-        font-family: 'Public Sans';
+    @font-face {
+        font-family: 'HV Fitzgerald';
+        src: url('{{ "HVFitzgerald-Bold.woff2" | file_url }}') format('woff2'),
+            url('{{ "HVFitzgerald-Bold.woff" | file_url }}') format('woff');
+        font-weight: bold;
+        font-style: normal;
     }
+
+    @font-face {
+        font-family: 'HV Fitzgerald';
+        src: url('{{ "HVFitzgerald-Regular.woff2" | file_url }}') format('woff2'),
+            url('{{ "HVFitzgerald-Regular.woff" | file_url }}') format('woff');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    @font-face {
+        font-family: 'HV Fitzgerald';
+        src: url('{{ "HVFitzgerald-Bold.woff2" | file_url }}') format('woff2'),
+            url('{{ "HVFitzgerald-Bold.woff" | file_url }}') format('woff');
+        font-weight: bold;
+        font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Bold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Bold.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraLight.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraLight.woff" | file_url }}') format('woff');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Black.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Black.woff" | file_url }}') format('woff');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraLightItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraLightItalic.woff" | file_url }}') format('woff');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-BoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-BoldItalic.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraBold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraBold.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-BlackItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-BlackItalic.woff" | file_url }}') format('woff');
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraBoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraBoldItalic.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Regular.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Regular.woff" | file_url }}') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Italic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Italic.woff" | file_url }}') format('woff');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Light.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Light.woff" | file_url }}') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ThinItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ThinItalic.woff" | file_url }}') format('woff');
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-SemiBold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-SemiBold.woff" | file_url }}') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-SemiBoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-SemiBoldItalic.woff" | file_url }}') format('woff');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-MediumItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-MediumItalic.woff" | file_url }}') format('woff');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-LightItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-LightItalic.woff" | file_url }}') format('woff');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Medium.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Medium.woff" | file_url }}') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Thin.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Thin.woff" | file_url }}') format('woff');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Bold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Bold.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraLight.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraLight.woff" | file_url }}') format('woff');
+      font-weight: 200;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Black.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Black.woff" | file_url }}') format('woff');
+      font-weight: 900;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraLightItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraLightItalic.woff" | file_url }}') format('woff');
+      font-weight: 200;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-BoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-BoldItalic.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraBold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraBold.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-BlackItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-BlackItalic.woff" | file_url }}') format('woff');
+      font-weight: 900;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ExtraBoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ExtraBoldItalic.woff" | file_url }}') format('woff');
+      font-weight: bold;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Regular.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Regular.woff" | file_url }}') format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Italic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Italic.woff" | file_url }}') format('woff');
+      font-weight: normal;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Light.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Light.woff" | file_url }}') format('woff');
+      font-weight: 300;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-ThinItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-ThinItalic.woff" | file_url }}') format('woff');
+      font-weight: 100;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-SemiBold.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-SemiBold.woff" | file_url }}') format('woff');
+      font-weight: 600;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-SemiBoldItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-SemiBoldItalic.woff" | file_url }}') format('woff');
+      font-weight: 600;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-MediumItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-MediumItalic.woff" | file_url }}') format('woff');
+      font-weight: 500;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-LightItalic.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-LightItalic.woff" | file_url }}') format('woff');
+      font-weight: 300;
+      font-style: italic;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Medium.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Medium.woff" | file_url }}') format('woff');
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+  }
+
+  @font-face {
+      font-family: 'Public Sans';
+      src: url('{{ "PublicSans-Thin.woff2" | file_url }}') format('woff2'),
+          url('{{ "PublicSans-Thin.woff" | file_url }}') format('woff');
+      font-weight: 100;
+      font-style: normal;
+      font-display: swap;
+  }
+
+    :root {
+    --font-body-family: 'HV Fitzgerald';
+    }
+
+        .font-primary,
+        .font-primary > *,
+        .cart-items > *,
+        .product-option > *, {
+          font-family: 'HV Fitzgerald', sans-serif !important;
+          font-weight: bold !important;
+        }
+
+
+
+            h1,h2,h3,h4,h5,h6{
+                font-family: 'HV Fitzgerald', sans-serif !important;
+                font-weight: bold !important;
+            }
+
+            .mega-menu__link--level-2,
+            .card__heading h5 > .full-unstyled-link
+            .price__container > *{
+              font-family: 'HV Fitzgerald', sans-serif !important;
+            }
+
+            p,
+            span,
+            a:not(.mega-menu__link--level-2),
+            a:not(.full-unstyled-link),
+            button {
+                font-family: 'Public Sans' !important;
+            }
 {% endstylesheet %}

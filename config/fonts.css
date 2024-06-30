@@ -1,38 +1,49 @@
 @font-face {
-    font-family: 'HV Fitzgerald';
-    src: url('../assets/fonts/HVFitzgerald-Regular.woff2') format('woff2'),
-        url('../assets/fonts/HVFitzgerald-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'HV Fitzgerald';
-    src: url('../assets/fonts/HVFitzgerald-Bold.woff2') format('woff2'),
-        url('../assets/fonts/HVFitzgerald-Bold.woff') format('woff');
+    font-family: 'Recline Bold';
+    src: url('../assets/fonts/Recline-Bold.ttf') format('ttf'),
+    url('../assets/fonts/Recline-Bold.woff') format('woff');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'HV Fitzgerald';
-    src: url('../assets/fonts/HVFitzgerald-Regular.woff2') format('woff2'),
-        url('../assets/fonts/HVFitzgerald-Regular.woff') format('woff');
-    font-weight: normal;
+    font-family: 'Recline SemiBold';
+    src: url('../assets/fonts/Recline-SemiBold.ttf') format('ttf'),
+    url('../assets/fonts/Recline-SemiBold.woff') format('woff');
+    font-weight: 800;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'HV Fitzgerald';
-    src: url('../assets/fonts/HVFitzgerald-Bold.woff2') format('woff2'),
-        url('../assets/fonts/HVFitzgerald-Bold.woff') format('woff');
-    font-weight: bold;
+    font-family: 'Recline Medium';
+    src: url('../assets/fonts/Recline-Medium.ttf') format('ttf'),
+    url('../assets/fonts/Recline-Medium.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
 }
+
+@font-face {
+    font-family: 'Recline Regular';
+    src: url('../assets/fonts/Recline-Regular.ttf') format('ttf'),
+    url('../assets/fonts/Recline-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Recline Light';
+    src: url('../assets/fonts/Recline-Light.ttf') format('ttf'),
+    url('../assets/fonts/Recline-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 
 /* Public Sans */
 @font-face {

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./config/fonts.css" />
     <link rel="stylesheet" href="app.css">
 </head>
@@ -12,7 +14,7 @@
 <body>
 
     <div class="manjon-header">
-        <h1 class="manjon-header__logo">LOGO</h1>
+        <h1 class="manjon-header__logo">Lorelei</h1>
         <nav class="manjon-header__navigation">
             <ul class="manjon-header__navigation-list">
                 <li class="manjon-header__navigation-list-item">
@@ -98,35 +100,277 @@
             </ul>
         </nav>
     </div>
+    
+    <br><br><br>
+    <br><br><br>
+
+    <div class="manjon-product-featured">
+        <h3 class="manjon-product-featured-title">
+            Lorelei
+        </h3>
+
+        <picture class="manjon-product-featured__picture">
+            <img class="manjon-product-featured__picture-img" src="./assets/deep-cleansing.jpg" alt="PICTURE" />
+        </picture>
+
+        <div class="manjon-product-featured__category">
+            <div class="manjon-products__product">
+                <div class="manjon-products__product__content">
+                    <div class="manjon-products__product__content__information">
+                        <h3 class="manjon-products__product-title uppercase">
+                            Exclusive creams</h3>
+                        <p class="manjon-products__product-text manjon-products__product-text--not-limit">
+                            Descubre nuestra colección de cremas exclusivas, diseñadas para ofrecer un cuidado superior y una experiencia sensorial única. Cada fórmula ha sido elaborada con ingredientes de la más alta calidad, seleccionados meticulosamente para nutrir, hidratar y revitalizar tu piel. Nuestra línea de cremas exclusivas está creada para quienes buscan un toque de lujo en su rutina de belleza diaria, asegurando resultados visibles y una piel radiante y saludable.
+                        </p>
+                    </div>
+                    <a class="manjon-products__product-quick-shop" href="#">Compra ahora</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br><br><br>
+
+    <div class="manjon-wrapper-products">
+        <div class="manjon-wrapper-products__primary">
+            <div class="manjon-wrapper-products__primary__content">
+                <h3 class="manjon-wrapper-products__primary-title">
+                    SOURCE OF SKIN STRENGTH
+                </h3>
+                <p class="manjon-wrapper-products__primary-text">
+                    Bring the potent benefits of Concentrated Miracle Broth™ to your summer regimen. Strengthen your skin’s barrier with The Concentrate and smooth fine lines with The Eye Concentrate
+                </p>
+                <a class="manjon-wrapper-products__primary-link" href="#">Shop now</a>
+            </div>
+        </div>
+        <picture class="manjon-wrapper-products__picture">
+            <img class="manjon-wrapper-products__picture-img" src="./assets/exclusive-aqua.jpg" alt="PRODUCT">
+        </picture>
+        <div class="manjon-wrapper-products__secondary">
+            <picture class="manjon-wrapper-products__secondary__picture">
+                <span class="manjon-wrapper-products__secondary__tag">
+                    BEST SELLER
+                </span>
+                <img class="manjon-wrapper-products__secondary__picture-img" src="https://www.cremedelamer.com/media/export/cms/products/responsive/lm_sku_431X01_4x5_0.png?width=900&height=1125"  alt="PRODUCT">
+            </picture>
+            <div class="manjon-wrapper-products__secondary__content">
+                <h3 class="manjon-wrapper-products__secondary-title">
+                    THE CONCENTRATE
+                </h3>
+                <p class="manjon-wrapper-products__secondary-text">
+                    Velvet-smooth barrier serum strengthens, visibly soothes and protects
+                </p>
+                <a class="manjon-wrapper-products__secondary-link" href="#">Quick Shop</a>
+            </div>
+        </div>
+    </div>
+
+    <br><br><br>
+
+    <br><br><br>
+    <div class="swiper swiper--custom">
+        <div class="manjon-products__information">
+            <h3 class="manjon-products__information-title">
+                Trending Products
+            </h3>
+            <p class="manjon-products__information-text">
+                Check out our latest and greatest products that are taking the market by storm.
+            </p>
+        </div>
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+                <div class="manjon-products__product">
+                    <figure class="manjon-products__product-figure">
+                        <span class="manjon-products__product__tag">
+                            BEST SELLER
+                        </span>
+                        <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                        <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+                    </figure>
+                    <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                            <h3 class="manjon-products__product-title">Micellar Water</h3>
+                            <p class="manjon-products__product-text">
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                            </p>
+                            <span class="manjon-products__product-price">$170</span>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="manjon-products__product manjon-products__product--one-image">
+                    <figure class="manjon-products__product-figure">
+                        <span class="manjon-products__product__tag">
+                            BEST SELLER
+                        </span>
+                        <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                        <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+                    </figure>
+                    <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                            <h3 class="manjon-products__product-title">Facial Serum</h3>
+                            <p class="manjon-products__product-text">
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                            </p>
+                            <span class="manjon-products__product-price">
+                                From 30€ / 2 Sizes
+                            </span>
+                        </div>
+                        <a class="manjon-products__product-quick-shop" href="#">Quick shop</a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="manjon-products__product">
+                    <figure class="manjon-products__product-figure">
+                        <span class="manjon-products__product__tag">
+                            BEST SELLER
+                        </span>
+                        <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                        <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+                    </figure>
+                    <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                            <h3 class="manjon-products__product-title">Micellar Water</h3>
+                            <p class="manjon-products__product-text">
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                            </p>
+                            <span class="manjon-products__product-price">$170</span>
+                        </div>
+                        <a href="#"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="manjon-products__product manjon-products__product--one-image">
+                    <figure class="manjon-products__product-figure">
+                        <span class="manjon-products__product__tag">
+                            BEST SELLER
+                        </span>
+                        <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                        <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+                    </figure>
+                    <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                            <h3 class="manjon-products__product-title">Facial Serum</h3>
+                            <p class="manjon-products__product-text">
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                                Rich, pillow-soft lather purifies skin while protecting its delicate moisture
+                                barrier.
+                            </p>
+                            <span class="manjon-products__product-price">
+                                From 30€ / 2 Sizes
+                            </span>
+                        </div>
+                        <a class="manjon-products__product-quick-shop" href="#">Quick shop</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <br><br><br>
+
+    <div class="manjon-products">
+        <div class="manjon-products__product">
+            <figure class="manjon-products__product-figure">
+                <span class="manjon-products__product__tag">
+                    BEST SELLER
+                </span>
+                <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                    class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                    class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+            </figure>
+            <div class="manjon-products__product__content">
+                <div class="manjon-products__product__content__information">
+                    <h3 class="manjon-products__product-title">Micellar Water</h3>
+                    <p class="manjon-products__product-text">
+                        Rich, pillow-soft lather purifies skin while protecting its delicate moisture barrier.
+                    </p>
+                    <span class="manjon-products__product-price">$170</span>
+                </div>
+                <a class="manjon-products__product-quick-shop" href="#">Quick shop</a>
+            </div>
+        </div>
+        <div class="manjon-products__product manjon-products__product--one-image">
+            <figure class="manjon-products__product-figure">
+                <span class="manjon-products__product__tag">
+                    BEST SELLER
+                </span>
+                <img src="./assets/deep-cleansing.jpg" alt="Primary Image"
+                    class="manjon-products__product-figure-img manjon-products__product-figure-img--current" />
+                <img src="./assets/exclusive-aqua.jpg" alt="Secondary Image"
+                    class="manjon-products__product-figure-img manjon-products__product-figure-img--preview" />
+            </figure>
+            <div class="manjon-products__product__content">
+                <div class="manjon-products__product__content__information">
+                    <h3 class="manjon-products__product-title">Facial Serum</h3>
+                    <p class="manjon-products__product-text">
+                        Rich, pillow-soft lather purifies skin while protecting its delicate moisture barrier.
+                        Rich, pillow-soft lather purifies skin while protecting its delicate moisture barrier.
+                    </p>
+                    <span class="manjon-products__product-price">
+                        From 30€ / 2 Sizes
+                    </span>
+                </div>
+                <a class="manjon-products__product-quick-shop" href="#">Quick shop</a>
+            </div>
+        </div>
+    </div>
 
     <br><br><br>
 
     <div class="manjon-collections">
         <div class="manjon-collections__information">
             <h3 class="manjon-collections__information-title">
-               Nuestras Categorias
+                Nuestras Categorias
             </h3>
             <p class="manjon-collections__information-text">
-                Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish your skin. Experience the power of our products and see the difference for yourself.
+                Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish your
+                skin.
+                Experience the power of our products and see the difference for yourself.
             </p>
         </div>
         <div class="manjon-collections__wrapper">
             <a href="#" class="manjon-collections__collection">
-                <img src="./assets/exclusive-aqua.jpg" alt="Coleccion cremas" class="manjon-collections__collection-img" />
+                <img src="./assets/exclusive-aqua.jpg" alt="Coleccion cremas"
+                    class="manjon-collections__collection-img" />
                 <h3 class="manjon-collections__collection-title">Cremas</h3>
             </a>
             <a href="#" class="manjon-collections__collection">
-                <img src="./assets/ultra-smooth.jpg" alt="Coleccion perfumes" class="manjon-collections__collection-img" />
+                <img src="./assets/ultra-smooth.jpg" alt="Coleccion perfumes"
+                    class="manjon-collections__collection-img" />
                 <h3 class="manjon-collections__collection-title">Perfumes</h3>
             </a>
             <a href="#" class="manjon-collections__collection">
-                <img src="./assets/deep-cleansing.jpg" alt="Coleccion Exclusica" class="manjon-collections__collection-img" />
+                <img src="./assets/deep-cleansing.jpg" alt="Coleccion Exclusica"
+                    class="manjon-collections__collection-img" />
                 <h3 class="manjon-collections__collection-title">Exclusive</h3>
             </a>
         </div>
     </div>
 
-    <br><br><br>
 
     <div class="manjon-cta-container">
         <div class="manjon-cta-container__information">
@@ -134,8 +378,10 @@
                 Our Commitment to Quality and Customer Satisfaction
             </h3>
             <p class="manjon-cta-container__information-text">
-                At Lorelei, we take pride in using the highest quality ingredients in our luxury creams. Our products
-                are carefully crafted to provide effective results without any harmful effects. With Lorelei, you can
+                At Lorelei, we take pride in using the highest quality ingredients in our luxury creams. Our
+                products
+                are carefully crafted to provide effective results without any harmful effects. With Lorelei,
+                you can
                 indulge in skincare that truly cares for your skin.
             </p>
         </div>
@@ -145,8 +391,10 @@
                     Sustainable Practices for a Better Future
                 </h3>
                 <p class="manjon-cta-container__block-text">
-                    We are committed to sustainable practices, ensuring that our production processes have minimal
-                    impact on the environment. From sourcing ingredients responsibly to eco-friendly packaging, we
+                    We are committed to sustainable practices, ensuring that our production processes have
+                    minimal
+                    impact on the environment. From sourcing ingredients responsibly to eco-friendly packaging,
+                    we
                     strive to make a positive difference.
                 </p>
             </div>
@@ -155,7 +403,8 @@
                     Dedicated to Customer Satisfaction
                 </h3>
                 <p class="manjon-cta-container__block-text">
-                    At Lorelei, we prioritize customer satisfaction. We go above and beyond to ensure that our customers
+                    At Lorelei, we prioritize customer satisfaction. We go above and beyond to ensure that our
+                    customers
                     have a delightful experience with our products and services.
                 </p>
             </div>
@@ -164,7 +413,8 @@
                     Experience the Lorelei Difference Today
                 </h3>
                 <p class="manjon-cta-container__block-text">
-                    Discover the luxury skincare brand that truly cares for your skin. Try Lorelei today and experience
+                    Discover the luxury skincare brand that truly cares for your skin. Try Lorelei today and
+                    experience
                     the difference for yourself.
                 </p>
             </div>
@@ -179,9 +429,12 @@
                 style="background-image: url('./assets/exclusive-aqua.jpg');">
                 <div class="manjon-slider__item__content">
                     <h2 class="manjon-slider__item-title">Micellar Water</h2>
-                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing moisture. The
-                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused with
-                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a feather-light
+                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing
+                        moisture. The
+                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused
+                        with
+                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a
+                        feather-light
                         texture ideal for oilier skin.</p>
                     <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
                 </div>
@@ -189,8 +442,10 @@
             <div class="manjon-slider__item" style="background-image: url('./assets/deep-cleansing.jpg');">
                 <div class="manjon-slider__item__content">
                     <h2 class="manjon-slider__item-title">Facial Serum</h2>
-                    <p class="manjon-slider__item-text">Creamy cooling mask helps detoxify and pretoxify skin to attract
-                        impurities, purge skin of debris, and perfect pores, leaving skin feeling refreshed and looking
+                    <p class="manjon-slider__item-text">Creamy cooling mask helps detoxify and pretoxify skin to
+                        attract
+                        impurities, purge skin of debris, and perfect pores, leaving skin feeling refreshed and
+                        looking
                         refined.</p>
                     <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
                 </div>
@@ -198,33 +453,16 @@
             <div class="manjon-slider__item" style="background-image: url('./assets/exclusive-nature-bonus.jpg');">
                 <div class="manjon-slider__item__content">
                     <h2 class="manjon-slider__item-title">Deep Cleansing</h2>
-                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing moisture. The
-                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused with
-                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a feather-light
+                    <p class="manjon-slider__item-text">A refreshing take on La Mer's signature healing
+                        moisture. The
+                        NEW Moisturizing Fresh Cream renews skin's youthful bounce for a firmer feel. Infused
+                        with
+                        visible youth-renewing Miracle Broth™ to balance sebum and banish excess oil. In a
+                        feather-light
                         texture ideal for oilier skin.</p>
                     <a class="manjon-slider__item-btn btn btn--primary">LEARN MORE</a>
                 </div>
             </div>
-        </div>
-        <div class="manjon-slider__controls">
-            <button class="manjon-slider__controls-prev">
-                <svg viewBox="0 0 14 10" fill="red" aria-hidden="true" focusable="false" class="icon icon-arrow"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                        fill="#818f96">
-                    </path>
-                </svg>
-            </button>
-            <button class="manjon-slider__controls-next">
-                <svg viewBox="0 0 14 10" fill="none" aria-hidden="true" focusable="false" class="icon icon-arrow"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M8.537.808a.5.5 0 01.817-.162l4 4a.5.5 0 010 .708l-4 4a.5.5 0 11-.708-.708L11.793 5.5H1a.5.5 0 010-1h10.793L8.646 1.354a.5.5 0 01-.109-.546z"
-                        fill="#818f96">
-                    </path>
-                </svg>
-            </button>
         </div>
     </div>
 
@@ -247,14 +485,20 @@
                     </svg>
                 </button>
                 <div class="manjon-faqs__item__content">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque,
-                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus
-                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam
+                        cumque,
+                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi
+                        possimus
+                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum
+                        aut
                         quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti
-                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam
+                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore
+                        aliquam
                         voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis
-                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus
-                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores
+                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate
+                        delectus
+                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis
+                        maiores
                         pariatur inventore, ut fugiat?</p>
                 </div>
             </div>
@@ -268,14 +512,20 @@
                     </svg>
                 </button>
                 <div class="manjon-faqs__item__content">
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam cumque,
-                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi possimus
-                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum aut
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eligendi deserunt aperiam
+                        cumque,
+                        voluptates consequatur magnam cupiditate quam natus quasi laboriosam, repellat, commodi
+                        possimus
+                        quos ex non eos sit! Eius maiores repellat distinctio facere, blanditiis totam dolor cum
+                        aut
                         quisquam ratione sunt adipisci laborum minus rem consequuntur, libero pariatur deleniti
-                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore aliquam
+                        laudantium. Nisi delectus, sint officia impedit esse nobis ea similique inventore
+                        aliquam
                         voluptas odit molestiae optio suscipit assumenda possimus neque eaque quod reiciendis
-                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate delectus
-                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis maiores
+                        cupiditate! Tempora, non eius, recusandae porro sed iure iste accusantium cupiditate
+                        delectus
+                        quos, adipisci eaque! Culpa, sequi! Dignissimos hic quaerat quibusdam nemo perspiciatis
+                        maiores
                         pariatur inventore, ut fugiat?</p>
                 </div>
             </div>
@@ -342,7 +592,8 @@
                     Proven Effectiveness
                 </h3>
                 <p class="manjon-container-tabs__blocks-item-text">
-                    Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish your
+                    Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish
+                    your
                     skin. Experience the power of our products and see the difference for yourself.
                 </p>
             </div>
@@ -351,7 +602,8 @@
                     Eco-friendly Packaging
                 </h3>
                 <p class="manjon-container-tabs__blocks-item-text">
-                    We are committed to sustainability and have chosen eco-friendly packaging for our products. By
+                    We are committed to sustainability and have chosen eco-friendly packaging for our products.
+                    By
                     choosing Lorelei, you can take care of your skin and the environment at the same time.
                 </p>
             </div>
@@ -382,7 +634,8 @@
                     Proven Effectiveness
                 </h3>
                 <p class="manjon-container-tabs__blocks-item-text">
-                    Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish your
+                    Our formulas have been proven to deliver visible results, helping to rejuvenate and nourish
+                    your
                     skin. Experience the power of our products and see the difference for yourself.
                 </p>
             </div>
@@ -391,7 +644,8 @@
                     Eco-friendly Packaging
                 </h3>
                 <p class="manjon-container-tabs__blocks-item-text">
-                    We are committed to sustainability and have chosen eco-friendly packaging for our products. By
+                    We are committed to sustainability and have chosen eco-friendly packaging for our products.
+                    By
                     choosing Lorelei, you can take care of your skin and the environment at the same time.
                 </p>
             </div>
@@ -409,11 +663,14 @@
         <article class="manjon-container__content">
             <h4 class="manjon-container-subtitle">Luxury</h4>
             <div class="manjon-container__information">
-                <h3 class="manjon-container-title">Experience the Power of Luxurious Skincare with Lorelei's Highest
+                <h3 class="manjon-container-title">Experience the Power of Luxurious Skincare with Lorelei's
+                    Highest
                     Quality Ingredients</h3>
                 <p class="manjon-container-text">
-                    At Lorelei, we believe in using only the finest ingredients that truly benefit your skin, without
-                    any harmful effects. Our luxurious creams are carefully crafted to provide you with the ultimate
+                    At Lorelei, we believe in using only the finest ingredients that truly benefit your skin,
+                    without
+                    any harmful effects. Our luxurious creams are carefully crafted to provide you with the
+                    ultimate
                     skincare experience.
                 </p>
             </div>
@@ -423,7 +680,8 @@
                         Unmatched Quality
                     </h3>
                     <p class="manjon-container__block-text">
-                        Our creams are made with the highest quality ingredients, ensuring effective and safe skincare.
+                        Our creams are made with the highest quality ingredients, ensuring effective and safe
+                        skincare.
                     </p>
                 </div>
                 <div class="manjon-container__block">
@@ -447,6 +705,36 @@
     </section>
 
     <script src="./main.js"></script>
+    <script type="module">
+
+
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+            spaceBetween: 40,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                },
+            },
+
+        });
+    </script>
+
 </body>
 
 </html>
