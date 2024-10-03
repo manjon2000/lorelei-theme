@@ -1,0 +1,195 @@
+<div class="manjon-categories">
+  <h3 class="manjon-categories-title">
+    {{ section.settings.title }}
+  </h3>
+  <div class="manjon-categories__wrapper">
+    {% for block in section.blocks %}
+      <div class="manjon-categories__item">
+        <picture class="manjon-categories__item-picture">
+          <img
+            loading="lazy"
+            class="manjon-categories__item-picture-img"
+            src="{{ block.settings.image | image_url: width: 660, height: 825 }}"
+            alt="{{ block.settings.image.alt }}"
+          >
+        </picture>
+        <div class="manjon-categories__item__content">
+          <h3 class="manjon-categories__item-title">
+            {{ block.settings.title }}
+          </h3>
+          <p class="manjon-categories__item-text">
+            {{ block.settings.text }}
+          </p>
+          <a class="manjon-categories__item-link" href="{{ block.settings.link }}">
+            {{ block.settings.link_text }}
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+    {
+    "name": "Categories Section",
+    "settings": [
+        {
+        "type": "text",
+        "id": "title",
+        "label": "Section Title",
+        "default": "Indulge On Us"
+        }
+    ],
+    "blocks": [
+        {
+        "type": "category_item",
+        "name": "Category Item",
+        "settings": [
+            {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Category Image"
+            },
+            {
+            "type": "text",
+            "id": "title",
+            "label": "Category Title",
+            "default": "Sample Title"
+            },
+            {
+            "type": "textarea",
+            "id": "text",
+            "label": "Category Text",
+            "default": "Sample text for the category."
+            },
+            {
+            "type": "url",
+            "id": "link",
+            "label": "Category Link URL",
+            "default": "#"
+            },
+            {
+            "type": "text",
+            "id": "link_text",
+            "label": "Link Text",
+            "default": "Select now"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Categories Section"
+        }
+    ]
+    }
+{% endschema %}
+
+{% style %}
+    .manjon-categories {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    }
+    .manjon-categories-title {
+    font-size: calc(42px + 10 * (100vw - 320px) / 1120);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #303030;
+    }
+    .manjon-categories__wrapper {
+    width: 100%;
+    height: max-conetnt;
+    display: grid;
+    gap: 1rem;
+    }
+    @media (min-width: 768px) {
+    .manjon-categories__wrapper {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    }
+    .manjon-categories__item {
+    width: 100%;
+    height: auto;
+    }
+    .manjon-categories__item-picture {
+    width: 100%;
+    height: auto;
+    }
+    .manjon-categories__item-picture-img {
+    width: 100%;
+    height: auto;
+    -o-object-fit: cover;
+        object-fit: cover;
+    -o-object-position: center center;
+        object-position: center center;
+    }
+    .manjon-categories__item__content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 8px 4px;
+    }
+    .manjon-categories__item-title {
+    font-family: "Recline SemiBold";
+    font-size: calc(16px + 1 * (100vw - 320px) / 1120);
+    line-height: 1.6;
+    letter-spacing: 1px;
+    color: #1b1b1b;
+    }
+    .manjon-categories__item-text {
+    font-size: calc(12px + 1 * (100vw - 320px) / 1120);
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    color: #1b1b1b;
+    }
+    @media (min-width: 768px) {
+    .manjon-categories__item-text {
+        max-width: 40ch;
+        line-height: 1.25;
+    }
+    }
+    .manjon-categories__item-link {
+    width: -moz-fit-content;
+    width: fit-content;
+    letter-spacing: 2px;
+    position: relative;
+    font-family: "Recline Regular";
+    font-size: small;
+    color: #818f96;
+    text-decoration: none;
+    }
+    .manjon-categories__item-link::before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    background-color: #818f96;
+    }
+    @media (min-width: 1024px) {
+    .manjon-categories__item-link::before {
+        width: 0%;
+        transition: all ease-in-out 0.25s;
+    }
+    }
+    @media (min-width: 1024px) {
+    .manjon-categories__item-link:hover::before {
+        width: 100%;
+        right: unset;
+        left: 0;
+    }
+    }
+{% endstyle %}

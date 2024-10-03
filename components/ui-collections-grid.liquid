@@ -1,0 +1,126 @@
+<div class="manjon-collections-grid">
+  <div class="manjon-collections-grid__wrapper">
+    {% for block in section.blocks %}
+      <a href="{{ block.settings.collection_link_id }}" class="manjon-collections-grid__collection">
+        <picture class="manjon-collections-grid__collection-picture">
+          <img
+            loading="lazy"
+            class="manjon-collections-grid__collection-picture-img"
+            src="{{ block.settings.collection_image_id | image_url: width: 660, height: 825 }}"
+            alt="{{ block.settings.collection_image_id.alt }}"
+          >
+        </picture>
+        <h3 class="manjon-collections-grid__collection-title">
+          <span>{{ block.settings.collection_shop_text_id }}</span>
+          <span>{{ block.settings.collection_title_id }}</span>
+        </h3>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+    {
+    "name": "Collections Grid",
+    "settings": [],
+    "blocks": [
+        {
+        "type": "collection_item",
+        "name": "Collection Item",
+        "settings": [
+            {
+            "type": "url",
+            "id": "collection_link_id",
+            "label": "Collection Link URL",
+            "default": "#"
+            },
+            {
+            "type": "image_picker",
+            "id": "collection_image_id",
+            "label": "Collection Image"
+            },
+            {
+            "type": "text",
+            "id": "collection_shop_text_id",
+            "label": "Shop Text",
+            "default": "SHOP"
+            },
+            {
+            "type": "text",
+            "id": "collection_title_id",
+            "label": "Collection Title",
+            "default": "MOISTURIZERS"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Collections Grid"
+        }
+    ]
+    }
+{% endschema %}
+
+{% style %}
+    .manjon-collections-grid {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    }
+    .manjon-collections-grid-title {
+    font-size: calc(42px + 10 * (100vw - 320px) / 1120);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: #303030;
+    }
+    .manjon-collections-grid__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+    @media (min-width: 900px) {
+    .manjon-collections-grid__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    }
+    .manjon-collections-grid__collection {
+    width: 100%;
+    height: auto;
+    position: relative;
+    }
+    .manjon-collections-grid__collection-picture {
+    width: 100%;
+    height: auto;
+    }
+    .manjon-collections-grid__collection-picture-img {
+    width: 100%;
+    height: auto;
+    }
+    .manjon-collections-grid__collection-title {
+    position: absolute;
+    bottom: 30px;
+    left: 20px;
+    }
+    .manjon-collections-grid__collection-title span {
+    display: block;
+    font-family: "Recline Medium" !important;
+    font-size: calc(42px + 10 * (100vw - 320px) / 1120);
+    letter-spacing: -0.05em;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #FFF;
+    }
+{% endstyle %}
