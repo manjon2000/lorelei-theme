@@ -1,0 +1,580 @@
+<script type="module" defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Get container selected
+    const selectedContainer = document.querySelector('.manjon-slider-products__information__selected');
+
+    const selectedOptionsContainer = selectedContainer.querySelector(
+      '.manjon-slider-products__information__selected-list'
+    );
+
+    // Get Options
+    const selectedOptions = selectedContainer.querySelectorAll(
+      '.manjon-slider-products__information__selected-list-item'
+    );
+
+    // Get Button
+    const buttonSelected = selectedContainer.querySelector('.manjon-slider-products__information__selected-button');
+
+    // Get Containers Content
+    const containerContent = document.querySelector('.manjon-slider-products__content');
+
+    // Get item selected of default and injected in button
+    getItemSelected();
+
+    function getItemSelected() {
+      selectedOptions.forEach((option) => {
+        if (option.getAttribute('aria-selected') === 'true') {
+          buttonSelected.innerHTML = option.getAttribute('aria-valuetext');
+        }
+      });
+    }
+
+    selectedContainer.addEventListener('click', () => {
+      selectedOptionsContainer.classList.toggle('show');
+    });
+
+    showAndHidden();
+
+    function showAndHidden() {
+      selectedOptions.forEach((option, index) => {
+        if (option.getAttribute('aria-selected') === 'true') {
+          Array.from(containerContent.children).forEach((node, nodeIndex) => {
+            if (nodeIndex !== index) {
+              node.style.display = 'none';
+            } else {
+              node.style.display = 'block';
+            }
+          });
+        }
+      });
+    }
+
+    function selectedOptionsDeleted() {
+      selectedOptions.forEach((option) => {
+        option.setAttribute('aria-selected', false);
+      });
+    }
+
+    selectedOptions.forEach((option) => {
+      option.addEventListener('click', (item) => {
+        selectedOptionsDeleted();
+        item.target.setAttribute('aria-selected', true);
+        getItemSelected();
+        showAndHidden();
+      });
+    });
+
+    const swipers = document.querySelectorAll('.manjon-slider-products__content .swiper');
+
+    console.log(swipers);
+
+    swipers.forEach((swiperContainer) => {
+      // Asegúrate de que swiperContainer es un elemento válido
+      if (swiperContainer instanceof HTMLElement) {
+        const swiper = new Swiper(swiperContainer, {
+          direction: 'horizontal',
+          loop: true,
+          slidesPerView: 1,
+          spaceBetween: 40,
+          navigation: {
+            nextEl: swiperContainer.querySelector('.swiper-button-next'),
+            prevEl: swiperContainer.querySelector('.swiper-button-prev'),
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+          },
+        });
+      } else {
+        console.error('El elemento no es válido:', swiperContainer);
+      }
+    });
+  });
+</script>
+
+<div class="manjon-slider-products">
+  <div class="manjon-slider-products__information">
+    <h3 class="manjon-slider-products__information-title">Shop</h3>
+    <div class="manjon-slider-products__information__selected">
+      <div class="manjon-slider-products__information__selected__wrapper">
+        <button class="manjon-slider-products__information__selected-button"></button>
+        <svg
+          width="20px"
+          height="20px"
+          viewBox="0 0 32 32"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+        >
+          <g id="icomoon-ignore">
+          </g>
+          <path
+              d="M15.233 19.175l0.754 0.754 6.035-6.035-0.754-0.754-5.281 5.281-5.256-5.256-0.754 0.754 3.013 3.013z"
+              fill="#000000">
+
+          </path>
+        </svg>
+      </div>
+      <ul class="manjon-slider-products__information__selected-list">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'category' %}
+              <li
+                aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+                aria-valuetext="{{ block.settings.category_collection.title }}"
+                class="manjon-slider-products__information__selected-list-item"
+              >
+                {{ block.settings.category_collection.title }}
+              </li>
+          {% endcase %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="manjon-slider-products__content">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'category' %}
+          <div class="swiper">
+            {% comment %}
+              Assign Variable of all products by category
+            {% endcomment %}
+            {% assign category = block.settings.category_collection %}
+            {% assign products_in_category = collections[category].products %}
+            <div class="swiper-wrapper swiper--custom">
+              {% for product in products_in_category %}
+                <div class="swiper-slide">
+                  {% assign isExistSecondaryImage = product.images[1] %}
+                  {% if isExistSecondaryImage %}
+                    <div class="manjon-products__product">
+                      <figure class="manjon-products__product-figure">
+                        {% assign isShowTag = product.tags %}
+                        {% if isShowTag.size != 0 %}
+                          <span class="manjon-products__product__tag"> {{ isShowTag[0] }} </span>
+                        {% endif %}
+                        <img
+                          src="{{ product.images[0] | image_url: width: 1000 }}"
+                          alt="{{product.images[0].alt}}"
+                          class="manjon-products__product-figure-img manjon-products__product-figure-img--current"
+                        >
+                        {% if isExistSecondaryImage %}
+                          <img
+                            src="{{ product.images[1] | image_url: width: 1000 }}"
+                            alt="{{product.images[1].alt}}"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview"
+                          >
+                        {% endif %}
+                      </figure>
+                      <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                          <h3 class="manjon-products__product-title">
+                            {{ product.title }}
+                          </h3>
+                          <div class="manjon-products__product-text">
+                            {{ product.description }}
+                          </div>
+                          {% if product.has_only_default_variant %}
+                            <span class="manjon-products__product-price">
+                              {{ product.price | money_with_currency }}
+                            </span>
+                          {% else %}
+                            {%- assign priceTotal = product.price | money_with_currency -%}
+                            <span class="manjon-products__product-price">
+                              {{-
+                                'products.product.ammount_description'
+                                | t: ammount: priceTotal, quantity: product.variants.size
+                                | escape
+                              -}}
+                            </span>
+                          {% endif %}
+                          <a class="manjon-products__product-quick-shop" href="{{ product.url }}">Quick Shop</a>
+                        </div>
+                      </div>
+                    </div>
+                  {% else %}
+                    <div class="manjon-products__product manjon-products__product--one-image">
+                      <figure class="manjon-products__product-figure">
+                        {% assign isShowTag = product.tags %}
+                        {% if isShowTag.size != 0 %}
+                          <span class="manjon-products__product__tag"> {{ isShowTag[0] }} </span>
+                        {% endif %}
+                        <img
+                          src="{{ product.images[0] | image_url: width: 1000 }}"
+                          alt="{{product.images[0].alt}}"
+                          class="manjon-products__product-figure-img manjon-products__product-figure-img--current"
+                        >
+                        {% if isExistSecondaryImage %}
+                          <img
+                            src="{{ product.images[1] | image_url: width: 1000 }}"
+                            alt="{{product.images[1].alt}}"
+                            class="manjon-products__product-figure-img manjon-products__product-figure-img--preview"
+                          >
+                        {% endif %}
+                      </figure>
+                      <div class="manjon-products__product__content">
+                        <div class="manjon-products__product__content__information">
+                          <h3 class="manjon-products__product-title">
+                            {{ product.title }}
+                          </h3>
+                          <div class="manjon-products__product-text">
+                            {{ product.description }}
+                          </div>
+                          {% if product.has_only_default_variant %}
+                            <span class="manjon-products__product-price">
+                              {{ product.price | money_with_currency }}
+                            </span>
+                          {% else %}
+                            {%- assign priceTotal = product.price | money_with_currency -%}
+                            <span class="manjon-products__product-price">
+                              {{-
+                                'products.product.ammount_description'
+                                | t: ammount: priceTotal, quantity: product.variants.size
+                                | escape
+                              -}}
+                            </span>
+                          {% endif %}
+                          <a class="manjon-products__product-quick-shop" href="{{ product.url }}">Quick Shop</a>
+                        </div>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endfor %}
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+    <div></div>
+  </div>
+</div>
+
+{% schema %}
+    {
+    "name": "Slider Products",
+    "settings": [],
+    "blocks": [
+        {
+        "type": "category",
+        "name": "Category",
+        "settings": [
+            {
+            "type": "collection",
+            "id": "category_collection",
+            "label": "Select Category"
+            }
+        ]
+        }
+    ],
+    "presets": [
+        {
+        "name": "Slider Products"
+        }
+    ]
+    }
+{% endschema %}
+
+{% style %}
+  .manjon-slider-products {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .manjon-slider-products__information-title {
+    font-size: 50px;
+    line-height: 1;
+    color: #1b1b1b;
+    margin: 0;
+  }
+  .manjon-slider-products__information__selected {
+    position: relative;
+  }
+  .manjon-slider-products__information__selected__wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .manjon-slider-products__information__selected-button {
+    font-family: 'Recline Bold' !important;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 50px;
+    line-height: 1;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #1b1b1b;
+  }
+  .manjon-slider-products__information__selected-list {
+    width: 400px;
+    max-width: 100%;
+    z-index: 43;
+    height: -moz-max-content;
+    height: max-content;
+    background-color: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    list-style: none;
+    border-radius: 4px;
+    padding: 0.5rem !important;
+    animation-name: collapseAnimation;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+  }
+  .manjon-slider-products__information__selected-list-item {
+    width: 100%;
+    padding: 10px 0;
+    font-family: 'Recline Bold' !important;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 1.1;
+    text-transform: uppercase;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .manjon-slider-products__information__selected-list-item:hover {
+    color: #303030;
+    background: #f9f9f9;
+  }
+  .manjon-slider-products__information__selected-list-item[aria-selected='true'] {
+    color: #303030;
+    background: #efedea;
+  }
+  .manjon-slider-products__information__selected-list.show {
+    animation-name: expandAnimation;
+    animation-duration: 0.25s;
+    animation-fill-mode: forwards;
+  }
+  .manjon-slider-products ul {
+    padding: 0;
+  }
+  .manjon-slider-products ul li {
+    list-style: none;
+    font-family: 'Public Sans';
+  }
+  .manjon-slider-products button {
+    font-family: 'Public Sans';
+  }
+
+  @keyframes collapseAnimation {
+    0% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      opacity: 1;
+      height: auto;
+      padding: 1rem;
+    }
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      opacity: 0;
+      height: 0;
+    }
+  }
+
+  @keyframes expandAnimation {
+    0% {
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+      opacity: 0;
+      height: 0;
+    }
+    100% {
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+      opacity: 1;
+      height: auto;
+      padding: 1rem;
+    }
+  }
+{% endstyle %}
+
+{% style %}
+  /* PRODUCTS */
+  /* PRODUCTS */
+  .swiper--custom {
+    --swiper-navigation-color: #fff;
+    --swiper-navigation-size: 1.5rem;
+    max-width: 1250px;
+    height: -moz-max-content;
+    height: max-content;
+    margin: 0 auto;
+  }
+
+  .manjon-products {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1rem;
+    position: relative;
+    display: grid;
+    gap: 4px;
+  }
+  @media (min-width: 768px) {
+    .manjon-products {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1024px) {
+    .manjon-products {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .manjon-products__information {
+    margin-bottom: 1rem;
+  }
+  .manjon-products__information-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 120%;
+    color: #818f96;
+  }
+  @media (min-width: 900px) {
+    .manjon-products__information-title {
+      font-size: 40px;
+    }
+  }
+  .manjon-products__information-text {
+    margin: 0;
+    font-weight: 400;
+    font-size: small;
+    line-height: 150%;
+    color: #cacabe;
+  }
+  .manjon-products__product {
+    --current-img: 1;
+    --preview-img: 0;
+    width: 100%;
+  }
+  .manjon-products__product:not(.manjon-products__product--one-image) .manjon-products__product-figure:hover {
+    --current-img: 0;
+    --preview-img: 1;
+  }
+  .manjon-products__product-figure {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/10;
+    -o-object-fit: cover;
+    object-fit: cover;
+    position: relative;
+    margin: 0;
+    padding: 0;
+  }
+  .manjon-products__product-figure-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    aspect-ratio: 16/9;
+    transition: opacity ease-in-out 0.25s;
+  }
+  .manjon-products__product-figure-img--current {
+    opacity: var(--current-img);
+  }
+  .manjon-products__product-figure-img--preview {
+    opacity: var(--preview-img);
+  }
+  .manjon-products__product__tag {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    z-index: 3;
+    padding: 4px;
+    background-color: var(--blue);
+    color: white;
+    border-radius: 2px;
+    font-size: xx-small;
+    text-transform: uppercase;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+  .manjon-products__product__content {
+    padding: 1rem 0.5rem;
+  }
+  .manjon-products__product__content,
+  .manjon-products__product__content__information {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .manjon-products__product-title {
+    margin: 0;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 140%;
+    color: #818f96;
+  }
+  @media (min-width: 900px) {
+    .manjon-products__product-title {
+      font-size: 32px;
+      line-height: 130%;
+    }
+  }
+  .manjon-products__product-text,
+  .manjon-products__product-text > * {
+    margin: 0;
+    font-weight: 400;
+    font-size: small;
+    line-height: 150%;
+    color: #666;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .manjon-products__product-text--not-limit,
+  .manjon-products__product-text--not-limit > * {
+    display: block;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+  }
+  .manjon-products__product-price {
+    font-size: small;
+    color: #818f96;
+  }
+  .manjon-products__product-quick-shop {
+    width: -moz-fit-content;
+    width: fit-content;
+    position: relative;
+    font-size: small;
+    color: #818f96;
+    text-decoration: none;
+  }
+  .manjon-products__product-quick-shop::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -3px;
+    right: 0;
+    background-color: #818f96;
+  }
+  @media (min-width: 1024px) {
+    .manjon-products__product-quick-shop::before {
+      width: 0%;
+      transition: all ease-in-out 0.25s;
+    }
+  }
+  @media (min-width: 1024px) {
+    .manjon-products__product-quick-shop:hover::before {
+      width: 100%;
+      right: unset;
+      left: 0;
+    }
+  }
+{% endstyle %}

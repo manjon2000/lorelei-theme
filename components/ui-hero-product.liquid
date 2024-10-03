@@ -1,0 +1,351 @@
+<div class="manjon-wrapper-products">
+  <!-- Sección Principal -->
+  <div class="manjon-wrapper-products__primary">
+    <div class="manjon-wrapper-products__primary__content">
+      <h3 class="manjon-wrapper-products__primary-title">
+        {{ section.settings.primary_title_id }}
+      </h3>
+      <p class="manjon-wrapper-products__primary-text">
+        {{ section.settings.primary_text_id }}
+      </p>
+      <a class="manjon-wrapper-products__primary-link" href="{{ section.settings.primary_link_url_id }}">
+        {{ section.settings.primary_link_text_id }}
+      </a>
+    </div>
+  </div>
+
+  <!-- Imagen Principal -->
+  <picture class="manjon-wrapper-products__picture">
+    <img
+      loading="lazy"
+      class="manjon-wrapper-products__picture-img"
+      src="{{ section.settings.primary_image_id | image_url: width: 720, height: 860 }}"
+      alt="{{ section.settings.primary_image_id.alt }}"
+    >
+  </picture>
+
+  <!-- Bloques Secundarios -->
+  {% for block in section.blocks limit: 1 %}
+    {% case block.type %}
+      {% when 'secondary_product' %}
+        <div class="manjon-wrapper-products__secondary">
+          <picture class="manjon-wrapper-products__secondary__picture">
+            <span class="manjon-wrapper-products__secondary__tag">
+              {{ block.settings.secondary_tag_id }}
+            </span>
+            <img
+              loading="lazy"
+              class="manjon-wrapper-products__secondary__picture-img"
+              src="{{ block.settings.secondary_image_id | image_url: width: 900, height: 1125 }}"
+              alt="{{ block.settings.secondary_image_id.alt }}"
+            >
+          </picture>
+          <div class="manjon-wrapper-products__secondary__content">
+            <h3 class="manjon-wrapper-products__secondary-title">
+              {{ block.settings.secondary_title_id }}
+            </h3>
+            <p class="manjon-wrapper-products__secondary-text">
+              {{ block.settings.secondary_text_id }}
+            </p>
+            <a class="manjon-wrapper-products__secondary-link" href="{{ block.settings.secondary_link_url_id }}">
+              {{ block.settings.secondary_link_text_id }}
+            </a>
+          </div>
+        </div>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Products Wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "primary_title_id",
+      "label": "Primary Title",
+      "default": "SOURCE OF SKIN STRENGTH"
+    },
+    {
+      "type": "textarea",
+      "id": "primary_text_id",
+      "label": "Primary Text",
+      "default": "Bring the potent benefits of Concentrated Miracle Broth™ to your summer regimen. Strengthen your skin’s barrier with The Concentrate and smooth fine lines with The Eye Concentrate"
+    },
+    {
+      "type": "text",
+      "id": "primary_link_text_id",
+      "label": "Primary Link Text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "primary_link_url_id",
+      "label": "Primary Link URL",
+    },
+    {
+      "type": "image_picker",
+      "id": "primary_image_id",
+      "label": "Primary Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "secondary_product",
+      "name": "Secondary Product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "secondary_tag_id",
+          "label": "Tag Text",
+          "default": "BEST SELLER"
+        },
+        {
+          "type": "text",
+          "id": "secondary_title_id",
+          "label": "Secondary Title",
+          "default": "THE CONCENTRATE"
+        },
+        {
+          "type": "textarea",
+          "id": "secondary_text_id",
+          "label": "Secondary Text",
+          "default": "Velvet-smooth barrier serum strengthens, visibly soothes and protects"
+        },
+        {
+          "type": "text",
+          "id": "secondary_link_text_id",
+          "label": "Secondary Link Text",
+          "default": "Quick Shop"
+        },
+        {
+          "type": "url",
+          "id": "secondary_link_url_id",
+          "label": "Secondary Link URL",
+        },
+        {
+          "type": "image_picker",
+          "id": "secondary_image_id",
+          "label": "Secondary Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products Information"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  /* PRODUCTS WRAPPER HOME */
+.manjon-wrapper-products {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+  
+@media (min-width: 768px) {
+  .manjon-wrapper-products {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: auto;
+  }
+}
+@media (min-width: 768px) {
+  .manjon-wrapper-products__primary {
+    grid-column: 1/4;
+    grid-row: 1/1;
+    align-self: flex-start;
+  }
+}
+.manjon-wrapper-products__primary__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.manjon-wrapper-products__primary-title {
+  font-family: "Recline Bold";
+  font-size: calc(42px + 10 * (100vw - 320px) / 1120);
+  letter-spacing: -0.05em;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-transform: uppercase;
+  color: #1b1b1b;
+  text-transform: uppercase;
+  margin: 0;
+}
+.manjon-wrapper-products__primary-text {
+  font-size: calc(12px + 1 * (100vw - 320px) / 1120);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: #1b1b1b;
+  margin: 0;
+}
+.manjon-wrapper-products__primary-link {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-family: "Recline Regular";
+  font-size: small;
+  color: #818f96;
+  text-decoration: none;
+}
+.manjon-wrapper-products__primary-link::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  background-color: #818f96;
+}
+@media (min-width: 1024px) {
+  .manjon-wrapper-products__primary-link::before {
+    width: 0%;
+    transition: all ease-in-out 0.25s;
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-wrapper-products__primary-link:hover::before {
+    width: 100%;
+    right: unset;
+    left: 0;
+  }
+}
+.manjon-wrapper-products__picture {
+  width: 100%;
+  height: auto;
+}
+@media (min-width: 768px) {
+  .manjon-wrapper-products__picture {
+    grid-column: 5/9;
+    grid-row: 1/6;
+    position: sticky;
+    top: 5px;
+    align-self: flex-start;
+  }
+}
+.manjon-wrapper-products__picture-img {
+  width: 100%;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+@media (min-width: 768px) {
+  .manjon-wrapper-products__secondary {
+    grid-column: 1/5;
+    grid-row: 4/4;
+    align-self: flex-end;
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-wrapper-products__secondary {
+    grid-column: 1/4;
+    grid-row: 5/5;
+  }
+}
+.manjon-wrapper-products__secondary__picture {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+.manjon-wrapper-products__secondary__picture-img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  background-image: linear-gradient(128.07deg, #fbfbfb 12.08%, #dedad3 87.51%);
+}
+.manjon-wrapper-products__secondary__tag {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-max-content;
+  height: max-content;
+  position: absolute;
+  left: 10px;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #303030;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+.manjon-wrapper-products__secondary__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 8px 4px;
+}
+.manjon-wrapper-products__secondary-title {
+  font-family: "Recline SemiBold";
+  font-size: calc(16px + 1 * (100vw - 320px) / 1120);
+  line-height: 1.6;
+  letter-spacing: 1px;
+  color: #1b1b1b;
+  margin: 0;
+}
+.manjon-wrapper-products__secondary-text {
+  font-size: calc(12px + 1 * (100vw - 320px) / 1120);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  color: #1b1b1b;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .manjon-wrapper-products__secondary-text {
+    max-width: 40ch;
+    line-height: 1.25;
+  }
+}
+.manjon-wrapper-products__secondary-link {
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  font-family: "Recline Regular";
+  font-size: small;
+  color: #818f96;
+  text-decoration: none;
+}
+.manjon-wrapper-products__secondary-link::before {
+  content: "";
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  bottom: -3px;
+  right: 0;
+  background-color: #818f96;
+}
+@media (min-width: 1024px) {
+  .manjon-wrapper-products__secondary-link::before {
+    width: 0%;
+    transition: all ease-in-out 0.25s;
+  }
+}
+@media (min-width: 1024px) {
+  .manjon-wrapper-products__secondary-link:hover::before {
+    width: 100%;
+    right: unset;
+    left: 0;
+  }
+}
+{% endstyle %}

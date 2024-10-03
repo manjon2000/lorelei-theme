@@ -146,27 +146,117 @@ document.addEventListener("DOMContentLoaded", () => {
     initializeSlider(slider);
   });
 
-  const navItems = document.querySelectorAll('.manjon-header__navigation-list .manjon-header__navigation-list-item');
+  const navItems = document.querySelectorAll(
+    ".manjon-header__navigation-list .manjon-header__navigation-list-item"
+  );
 
   navItems.forEach((item) => {
-    item.addEventListener('mouseenter', (element) => {
+    item.addEventListener("mouseenter", (element) => {
       element.target.childNodes.forEach((child, index) => {
-        if(child.classList) {
-         if(child.classList.contains('manjon-header__navigation-list-item__mega-menu')) {
-          child.classList.add('manjon-header__navigation-list-item__mega-menu--show');
-         }
+        if (child.classList) {
+          if (
+            child.classList.contains(
+              "manjon-header__navigation-list-item__mega-menu"
+            )
+          ) {
+            child.classList.add(
+              "manjon-header__navigation-list-item__mega-menu--show"
+            );
+          }
         }
-      })
+      });
     });
 
-    item.addEventListener('mouseleave', (element) => {
+    item.addEventListener("mouseleave", (element) => {
       element.target.childNodes.forEach((child) => {
-        if(child.classList) {
-         if(child.classList.contains('manjon-header__navigation-list-item__mega-menu--show')) {
-          child.classList.remove('manjon-header__navigation-list-item__mega-menu--show');
-         }
+        if (child.classList) {
+          if (
+            child.classList.contains(
+              "manjon-header__navigation-list-item__mega-menu--show"
+            )
+          ) {
+            child.classList.remove(
+              "manjon-header__navigation-list-item__mega-menu--show"
+            );
+          }
         }
-      })
+      });
+    });
+  });
+
+  /**
+   * Slider Products
+   */
+
+  // Get container selected
+  const selectedContainer = document.querySelector(
+    ".manjon-slider-products__information__selected"
+  );
+
+  const selectedOptionsContainer = selectedContainer.querySelector(
+    ".manjon-slider-products__information__selected-list"
+  );
+
+
+  // Get Options
+  const selectedOptions = selectedContainer.querySelectorAll(
+    ".manjon-slider-products__information__selected-list-item"
+  );
+
+  // Get Button
+  const buttonSelected = selectedContainer.querySelector(
+    ".manjon-slider-products__information__selected-button"
+  );
+
+  // Get Containers Content
+
+  const containerContent = document.querySelector(
+    ".manjon-slider-products__content"
+  );
+
+  // Get item selected of default and injected in button
+  getItemSelected();
+
+  function getItemSelected() {
+    selectedOptions.forEach((option) => {
+      if (option.getAttribute("aria-selected") === "true") {
+        buttonSelected.innerHTML = option.getAttribute("aria-valuetext");
+      }
+    });
+  }
+
+  selectedContainer.addEventListener('click', () => {
+    selectedOptionsContainer.classList.toggle('show');
+  });
+
+  showAndHidden();
+
+  function showAndHidden() {
+    selectedOptions.forEach((option, index) => {
+      if (option.getAttribute("aria-selected") === "true") {
+        Array.from(containerContent.children).forEach((node, nodeIndex) => {
+          if (nodeIndex !== index) {
+            node.style.display = "none";
+          } else {
+            node.style.display = "block";
+          }
+        });
+      }
+    });
+  }
+
+  function selectedOptionsDeleted() {
+    selectedOptions.forEach((option) => {
+      option.setAttribute("aria-selected", false);
+    });
+  }
+
+  selectedOptions.forEach((option) => {
+    option.addEventListener("click", (item) => {
+      selectedOptionsDeleted();
+      item.target.setAttribute("aria-selected", true);
+      getItemSelected();
+      showAndHidden();
     });
   });
 });
